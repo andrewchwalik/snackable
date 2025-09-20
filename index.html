@@ -6,10 +6,12 @@
   <title>Snackable — Bite-sized social, big results</title>
   <meta name="description" content="Snackable is a social-first micro-marketing studio. We whip up snack-sized content and strategy that audiences actually crave." />
 
+  <!-- Favicon (optional) -->
+  <link rel="icon" href="favicon.png" type="image/png" />
+
   <!-- Tailwind (Play CDN) -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    // Optional Tailwind tweaks if you want
     tailwind.config = {
       theme: {
         extend: {
@@ -24,18 +26,20 @@
   </script>
 
   <style>
-    :root{
+    :root {
       --brand:#FFB1AE;
       --brandDark:#CB2832;
       --ink:#0f172a;
     }
-    html,body{background:#fff;}
+    html, body {
+      background: var(--brand);
+    }
   </style>
 </head>
 <body class="text-slate-900">
   <div id="root"></div>
 
-  <!-- React + ReactDOM + Babel (so we can write JSX in one file) -->
+  <!-- React + ReactDOM + Babel -->
   <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -43,17 +47,12 @@
   <script type="text/babel">
     function SnackableLanding() {
       return (
-        <div className="min-h-screen bg-white">
-          {/* Top Bar */}
-          <header className="sticky top-0 z-20 backdrop-blur supports-[backdrop-filter]:bg-white/70 border-b border-neutral-200">
+        <div className="min-h-screen bg-brand">
+          {/* Header */}
+          <header className="sticky top-0 z-20 backdrop-blur supports-[backdrop-filter]:bg-brand/80 border-b border-brandDark">
             <div className="mx-auto max-w-6xl px-4 py-4 flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <span className="inline-flex h-8 w-8 items-center justify-center rounded-xl" style={{background:"var(--brand)"}}>
-                  <span className="font-black tracking-tight text-[var(--brandDark)]">S</span>
-                </span>
-                <span className="font-semibold tracking-tight">Snackable</span>
-              </div>
-              <a href="#contact" className="text-sm font-medium rounded-xl px-4 py-2 border border-neutral-300 hover:border-neutral-400 transition">Let’s Talk</a>
+              <img src="assets/logo.png" alt="Snackable Logo" className="h-12 w-auto md:h-16" />
+              <a href="#contact" className="text-sm font-medium rounded-xl px-4 py-2 border border-brandDark text-brandDark bg-white hover:bg-brandDark hover:text-white transition">Let’s Talk</a>
             </div>
           </header>
 
@@ -61,32 +60,32 @@
           <section className="relative">
             <div className="mx-auto max-w-6xl px-4 py-20 md:py-28 grid md:grid-cols-2 gap-10 items-center">
               <div>
-                <h1 className="text-4xl md:text-6xl font-extrabold leading-tight" style={{color:"var(--ink)"}}>
+                <h1 className="text-4xl md:text-6xl font-extrabold leading-tight text-brandDark">
                   Snackable content that keeps you coming back for more.
                 </h1>
-                <p className="mt-5 text-lg text-neutral-700 max-w-prose">
+                <p className="mt-5 text-lg text-ink max-w-prose">
                   We whip up bite-sized content that audiences crave —
                   thumb-stopping content that’s easy to digest.
                 </p>
                 <div className="mt-8 flex flex-wrap items-center gap-3">
-                  <a href="#menu" className="rounded-2xl px-5 py-3 text-base font-semibold text-white" style={{background:"var(--brandDark)"}}>
+                  <a href="#menu" className="rounded-2xl px-5 py-3 text-base font-semibold bg-brandDark text-white hover:opacity-90">
                     See the menu
                   </a>
-                  <a href="#contact" className="rounded-2xl px-5 py-3 text-base font-semibold border border-neutral-300 hover:border-neutral-400">
+                  <a href="#contact" className="rounded-2xl px-5 py-3 text-base font-semibold border border-brandDark text-brandDark bg-white hover:bg-brandDark hover:text-white transition">
                     Order custom
                   </a>
                 </div>
-                <div className="mt-6 text-sm text-neutral-500">Average delivery: 7–14 days • Always fresh, never stale</div>
+                <div className="mt-6 text-sm text-brandDark">Average delivery: 7–14 days • Always fresh, never stale</div>
               </div>
 
               {/* Hero Card */}
               <div className="relative">
-                <div className="rounded-3xl shadow-xl border border-neutral-200 overflow-hidden">
-                  <div className="p-6 bg-neutral-50">
-                    <div className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium" style={{background:"var(--brand)"}}>
-                      <span className="h-2 w-2 rounded-full" style={{background:"var(--brandDark)"}} /> Chef’s Pick
+                <div className="rounded-3xl shadow-xl border border-brandDark overflow-hidden bg-white">
+                  <div className="p-6">
+                    <div className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium bg-brand">
+                      <span className="h-2 w-2 rounded-full bg-brandDark" /> Chef’s Pick
                     </div>
-                    <h3 className="mt-3 text-xl font-bold">One-page funnel + social snack pack</h3>
+                    <h3 className="mt-3 text-xl font-bold text-brandDark">One-page funnel + social snack pack</h3>
                     <p className="mt-1 text-sm text-neutral-600">Landing page, 5 ready-to-post socials, and ad copy. Served hot in one week.</p>
                   </div>
                   <div className="p-6 grid grid-cols-3 divide-x divide-neutral-200">
@@ -104,12 +103,9 @@
                 </div>
               </div>
             </div>
-
-            {/* Soft brand background */}
-            <div className="absolute inset-x-0 -z-10 top-0 h-[40vh]" style={{background:"linear-gradient(180deg, rgba(255,177,174,0.35), rgba(255,177,174,0))"}} />
           </section>
 
-          {/* Value */}
+          {/* Values */}
           <section className="mx-auto max-w-6xl px-4 py-10" id="value">
             <div className="grid sm:grid-cols-3 gap-6">
               {[
@@ -117,9 +113,9 @@
                 {title:"Simple", desc:"No jargon, no fluff. Just tasty content."},
                 {title:"Measurable", desc:"We track what matters so you know what’s cooking."},
               ].map((item, i) => (
-                <div key={i} className="rounded-3xl border border-neutral-200 p-6 hover:shadow-md transition">
-                  <div className="text-sm font-semibold" style={{color:"var(--brandDark)"}}>{item.title}</div>
-                  <div className="mt-1 text-base text-neutral-800">{item.desc}</div>
+                <div key={i} className="rounded-3xl border border-brandDark p-6 bg-white hover:shadow-md transition">
+                  <div className="text-sm font-semibold text-brandDark">{item.title}</div>
+                  <div className="mt-1 text-base text-ink">{item.desc}</div>
                 </div>
               ))}
             </div>
@@ -127,25 +123,25 @@
 
           {/* Packages */}
           <section className="mx-auto max-w-6xl px-4 py-8" id="menu">
-            <h2 className="text-2xl md:text-3xl font-bold">Our Menu</h2>
-            <p className="mt-2 text-neutral-600">Pick your flavor. Every package comes fresh—no stale leftovers.</p>
+            <h2 className="text-2xl md:text-3xl font-bold text-brandDark">Our Menu</h2>
+            <p className="mt-2 text-ink">Pick your flavor. Every package comes fresh—no stale leftovers.</p>
             <div className="mt-6 grid md:grid-cols-3 gap-6">
               {[
                 {name:"Snack Pack", price:"$1,500", bullets:["1-page site or funnel","5 snackable posts","1 ad concept"], cta:"Order Snack Pack"},
                 {name:"Combo Meal", price:"$3,000", bullets:["Landing + email capture","8 posts","2 ad concepts"], cta:"Order Combo"},
                 {name:"Full Feast", price:"$5,000", bullets:["Mini campaign (2 weeks)","12 posts","Ads + analytics"], cta:"Order Feast"},
               ].map((p, i) => (
-                <div key={i} className="rounded-3xl border border-neutral-200 p-6 flex flex-col">
-                  <div className="text-sm font-semibold" style={{color:"var(--brandDark)"}}>{p.name}</div>
-                  <div className="mt-1 text-3xl font-extrabold">{p.price}</div>
-                  <ul className="mt-4 space-y-2 text-sm text-neutral-700">
+                <div key={i} className="rounded-3xl border border-brandDark p-6 flex flex-col bg-white">
+                  <div className="text-sm font-semibold text-brandDark">{p.name}</div>
+                  <div className="mt-1 text-3xl font-extrabold text-ink">{p.price}</div>
+                  <ul className="mt-4 space-y-2 text-sm text-ink">
                     {p.bullets.map((b, idx)=> (
                       <li key={idx} className="flex items-start gap-2">
-                        <span className="mt-1 h-2 w-2 rounded-full" style={{background:"var(--brandDark)"}}></span>{b}
+                        <span className="mt-1 h-2 w-2 rounded-full bg-brandDark"></span>{b}
                       </li>
                     ))}
                   </ul>
-                  <a href="#contact" className="mt-6 inline-flex justify-center rounded-2xl px-4 py-2 font-semibold" style={{background:"var(--brand)", color:"var(--brandDark)"}}>
+                  <a href="#contact" className="mt-6 inline-flex justify-center rounded-2xl px-4 py-2 font-semibold bg-brand text-brandDark hover:bg-brandDark hover:text-white transition">
                     {p.cta}
                   </a>
                 </div>
@@ -155,16 +151,15 @@
 
           {/* Contact */}
           <section id="contact" className="mx-auto max-w-6xl px-4 py-16">
-            <div className="rounded-3xl p-8 md:p-10 border border-neutral-200 overflow-hidden relative">
-              <div className="absolute inset-0 -z-10 opacity-40" style={{background:"radial-gradient(1200px 400px at 100% 0%, rgba(255,177,174,0.5), transparent)"}} />
-              <h3 className="text-2xl md:text-3xl font-bold">Hungry for better content?</h3>
-              <p className="mt-2 text-neutral-700 max-w-prose">Drop us a note. We’ll cook up a plan that’s right for your brand—served fresh and fast.</p>
+            <div className="rounded-3xl p-8 md:p-10 border border-brandDark overflow-hidden relative bg-white">
+              <h3 className="text-2xl md:text-3xl font-bold text-brandDark">Hungry for better content?</h3>
+              <p className="mt-2 text-ink max-w-prose">Drop us a note. We’ll cook up a plan that’s right for your brand—served fresh and fast.</p>
               <form className="mt-6 grid md:grid-cols-3 gap-3">
                 <input className="rounded-xl border border-neutral-300 px-4 py-3" placeholder="Name" />
                 <input type="email" className="rounded-xl border border-neutral-300 px-4 py-3" placeholder="Email" />
                 <input className="rounded-xl border border-neutral-300 px-4 py-3 md:col-span-1" placeholder="Company / Project" />
                 <textarea className="rounded-xl border border-neutral-300 px-4 py-3 md:col-span-3" rows="4" placeholder="What kind of content do you crave?"></textarea>
-                <button type="button" className="md:col-span-3 rounded-2xl px-5 py-3 font-semibold text-white" style={{background:"var(--brandDark)"}}>
+                <button type="button" className="md:col-span-3 rounded-2xl px-5 py-3 font-semibold text-white bg-brandDark hover:opacity-90">
                   Send order
                 </button>
               </form>
@@ -172,9 +167,9 @@
           </section>
 
           {/* Footer */}
-          <footer className="mx-auto max-w-6xl px-4 py-10 text-sm text-neutral-500 flex items-center justify-between">
+          <footer className="mx-auto max-w-6xl px-4 py-10 text-sm text-brandDark flex items-center justify-between">
             <span>© <span id="year"></span> Snackable</span>
-            <a className="hover:text-neutral-700" href="mailto:hello@snackable.ooo">hello@snackable.ooo</a>
+            <a className="hover:text-ink" href="mailto:hello@snackable.ooo">hello@snackable.ooo</a>
           </footer>
         </div>
       );
@@ -182,7 +177,6 @@
 
     const root = ReactDOM.createRoot(document.getElementById("root"));
     root.render(<SnackableLanding />);
-    // set year
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
