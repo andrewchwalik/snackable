@@ -3,198 +3,188 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Snackable — Social Media Marketing</title>
-  <meta name="description" content="Snackable is a social media marketing studio that turns scrolls into sales with short, punchy content and smart strategy." />
+  <title>Snackable — Bite-sized social, big results</title>
+  <meta name="description" content="Snackable is a social-first micro-marketing studio. We whip up snack-sized content and strategy that audiences actually crave." />
 
-  <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="Snackable — Social Media Marketing" />
-  <meta property="og:description" content="Short, punchy content. Smart strategy. Real results." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://YOUR-USERNAME.github.io/snackable-site/" />
-  <meta property="og:image" content="assets/og-image.png" />
-  <meta name="twitter:card" content="summary_large_image" />
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
-
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="styles.css" />
-  <script defer src="script.js"></script>
-
-  <!-- Schema.org -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Organization",
-    "name":"Snackable",
-    "url":"https://YOUR-USERNAME.github.io/snackable-site/",
-    "logo":"https://YOUR-USERNAME.github.io/snackable-site/assets/logo.svg",
-    "sameAs":[
-      "https://www.instagram.com/yourhandle",
-      "https://www.tiktok.com/@yourhandle",
-      "https://www.linkedin.com/company/yourhandle"
-    ]
-  }
+  <!-- Tailwind (Play CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Optional Tailwind tweaks if you want
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: "#FFB1AE",
+            brandDark: "#CB2832",
+            ink: "#0f172a",
+          }
+        }
+      }
+    }
   </script>
+
+  <style>
+    :root{
+      --brand:#FFB1AE;
+      --brandDark:#CB2832;
+      --ink:#0f172a;
+    }
+    html,body{background:#fff;}
+  </style>
 </head>
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
+<body class="text-slate-900">
+  <div id="root"></div>
 
-  <header class="site-header">
-    <div class="container nav">
-      <a class="brand" href="/">
-        <img src="assets/logo.svg" alt="Snackable logo" class="logo" />
-        <span>Snackable</span>
-      </a>
+  <!-- React + ReactDOM + Babel (so we can write JSX in one file) -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">
-        <span class="sr-only">Toggle navigation</span>
-        ☰
-      </button>
-
-      <nav id="primary-nav" class="nav-links" aria-label="Primary">
-        <a href="#services">Services</a>
-        <a href="#work">Work</a>
-        <a href="#about">About</a>
-        <a class="btn btn-primary" href="#contact">Let’s Talk</a>
-      </nav>
-    </div>
-  </header>
-
-  <main id="main">
-    <!-- HERO -->
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <h1>Short, punchy content.<br /><span class="accent-underline">Real results.</span></h1>
-          <p>We’re a social media marketing studio that turns scrolls into sales with strategy, storytelling, and snack-sized creativity.</p>
-          <div class="cta-row">
-            <a class="btn btn-primary" href="#contact">Start a project</a>
-            <a class="btn btn-ghost" href="#work">See our work</a>
-          </div>
-          <ul class="trust-badges" aria-label="Stats">
-            <li><strong>10M+</strong><span>Views driven</span></li>
-            <li><strong>3–5×</strong><span>Avg. engagement lift</span></li>
-            <li><strong>150+</strong><span>Campaign assets</span></li>
-          </ul>
-        </div>
-        <div class="hero-media" aria-hidden="true">
-          <div class="phone-mock">
-            <div class="phone-screen">
-              <div class="feed-card">hook → value → CTA</div>
-              <div class="feed-card">stop-scroll visuals</div>
-              <div class="feed-card">repurpose longform</div>
+  <script type="text/babel">
+    function SnackableLanding() {
+      return (
+        <div className="min-h-screen bg-white">
+          {/* Top Bar */}
+          <header className="sticky top-0 z-20 backdrop-blur supports-[backdrop-filter]:bg-white/70 border-b border-neutral-200">
+            <div className="mx-auto max-w-6xl px-4 py-4 flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <span className="inline-flex h-8 w-8 items-center justify-center rounded-xl" style={{background:"var(--brand)"}}>
+                  <span className="font-black tracking-tight text-[var(--brandDark)]">S</span>
+                </span>
+                <span className="font-semibold tracking-tight">Snackable</span>
+              </div>
+              <a href="#contact" className="text-sm font-medium rounded-xl px-4 py-2 border border-neutral-300 hover:border-neutral-400 transition">Let’s Talk</a>
             </div>
-          </div>
+          </header>
+
+          {/* Hero */}
+          <section className="relative">
+            <div className="mx-auto max-w-6xl px-4 py-20 md:py-28 grid md:grid-cols-2 gap-10 items-center">
+              <div>
+                <h1 className="text-4xl md:text-6xl font-extrabold leading-tight" style={{color:"var(--ink)"}}>
+                  Snack-sized content.<br />
+                  <span className="inline-block" style={{color:"var(--brandDark)"}}>Full-course results.</span>
+                </h1>
+                <p className="mt-5 text-lg text-neutral-700 max-w-prose">
+                  We whip up tasty social media strategy and bite-sized campaigns that audiences actually crave—
+                  scroll-stopping posts, fun reels, and content that’s easy to digest but impossible to ignore.
+                </p>
+                <div className="mt-8 flex flex-wrap items-center gap-3">
+                  <a href="#menu" className="rounded-2xl px-5 py-3 text-base font-semibold text-white" style={{background:"var(--brandDark)"}}>
+                    See the menu
+                  </a>
+                  <a href="#contact" className="rounded-2xl px-5 py-3 text-base font-semibold border border-neutral-300 hover:border-neutral-400">
+                    Order custom
+                  </a>
+                </div>
+                <div className="mt-6 text-sm text-neutral-500">Average delivery: 7–14 days • Always fresh, never stale</div>
+              </div>
+
+              {/* Hero Card */}
+              <div className="relative">
+                <div className="rounded-3xl shadow-xl border border-neutral-200 overflow-hidden">
+                  <div className="p-6 bg-neutral-50">
+                    <div className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium" style={{background:"var(--brand)"}}>
+                      <span className="h-2 w-2 rounded-full" style={{background:"var(--brandDark)"}} /> Chef’s Pick
+                    </div>
+                    <h3 className="mt-3 text-xl font-bold">One-page funnel + social snack pack</h3>
+                    <p className="mt-1 text-sm text-neutral-600">Landing page, 5 ready-to-post socials, and ad copy. Served hot in one week.</p>
+                  </div>
+                  <div className="p-6 grid grid-cols-3 divide-x divide-neutral-200">
+                    {[
+                      {label:"Landing", value:"1 page"},
+                      {label:"Posts", value:"5 snacks"},
+                      {label:"Ads", value:"Basic setup"},
+                    ].map((k, i) => (
+                      <div key={i} className="px-3">
+                        <div className="text-xs text-neutral-500">{k.label}</div>
+                        <div className="text-lg font-semibold">{k.value}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Soft brand background */}
+            <div className="absolute inset-x-0 -z-10 top-0 h-[40vh]" style={{background:"linear-gradient(180deg, rgba(255,177,174,0.35), rgba(255,177,174,0))"}} />
+          </section>
+
+          {/* Value */}
+          <section className="mx-auto max-w-6xl px-4 py-10" id="value">
+            <div className="grid sm:grid-cols-3 gap-6">
+              {[
+                {title:"Fast", desc:"Quick bites, quick wins. We serve at speed."},
+                {title:"Simple", desc:"No jargon, no fluff. Just tasty content."},
+                {title:"Measurable", desc:"We track what matters so you know what’s cooking."},
+              ].map((item, i) => (
+                <div key={i} className="rounded-3xl border border-neutral-200 p-6 hover:shadow-md transition">
+                  <div className="text-sm font-semibold" style={{color:"var(--brandDark)"}}>{item.title}</div>
+                  <div className="mt-1 text-base text-neutral-800">{item.desc}</div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Packages */}
+          <section className="mx-auto max-w-6xl px-4 py-8" id="menu">
+            <h2 className="text-2xl md:text-3xl font-bold">Our Menu</h2>
+            <p className="mt-2 text-neutral-600">Pick your flavor. Every package comes fresh—no stale leftovers.</p>
+            <div className="mt-6 grid md:grid-cols-3 gap-6">
+              {[
+                {name:"Snack Pack", price:"$1,500", bullets:["1-page site or funnel","5 snackable posts","1 ad concept"], cta:"Order Snack Pack"},
+                {name:"Combo Meal", price:"$3,000", bullets:["Landing + email capture","8 posts","2 ad concepts"], cta:"Order Combo"},
+                {name:"Full Feast", price:"$5,000", bullets:["Mini campaign (2 weeks)","12 posts","Ads + analytics"], cta:"Order Feast"},
+              ].map((p, i) => (
+                <div key={i} className="rounded-3xl border border-neutral-200 p-6 flex flex-col">
+                  <div className="text-sm font-semibold" style={{color:"var(--brandDark)"}}>{p.name}</div>
+                  <div className="mt-1 text-3xl font-extrabold">{p.price}</div>
+                  <ul className="mt-4 space-y-2 text-sm text-neutral-700">
+                    {p.bullets.map((b, idx)=> (
+                      <li key={idx} className="flex items-start gap-2">
+                        <span className="mt-1 h-2 w-2 rounded-full" style={{background:"var(--brandDark)"}}></span>{b}
+                      </li>
+                    ))}
+                  </ul>
+                  <a href="#contact" className="mt-6 inline-flex justify-center rounded-2xl px-4 py-2 font-semibold" style={{background:"var(--brand)", color:"var(--brandDark)"}}>
+                    {p.cta}
+                  </a>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Contact */}
+          <section id="contact" className="mx-auto max-w-6xl px-4 py-16">
+            <div className="rounded-3xl p-8 md:p-10 border border-neutral-200 overflow-hidden relative">
+              <div className="absolute inset-0 -z-10 opacity-40" style={{background:"radial-gradient(1200px 400px at 100% 0%, rgba(255,177,174,0.5), transparent)"}} />
+              <h3 className="text-2xl md:text-3xl font-bold">Hungry for better content?</h3>
+              <p className="mt-2 text-neutral-700 max-w-prose">Drop us a note. We’ll cook up a plan that’s right for your brand—served fresh and fast.</p>
+              <form className="mt-6 grid md:grid-cols-3 gap-3">
+                <input className="rounded-xl border border-neutral-300 px-4 py-3" placeholder="Name" />
+                <input type="email" className="rounded-xl border border-neutral-300 px-4 py-3" placeholder="Email" />
+                <input className="rounded-xl border border-neutral-300 px-4 py-3 md:col-span-1" placeholder="Company / Project" />
+                <textarea className="rounded-xl border border-neutral-300 px-4 py-3 md:col-span-3" rows="4" placeholder="What kind of content do you crave?"></textarea>
+                <button type="button" className="md:col-span-3 rounded-2xl px-5 py-3 font-semibold text-white" style={{background:"var(--brandDark)"}}>
+                  Send order
+                </button>
+              </form>
+            </div>
+          </section>
+
+          {/* Footer */}
+          <footer className="mx-auto max-w-6xl px-4 py-10 text-sm text-neutral-500 flex items-center justify-between">
+            <span>© <span id="year"></span> Snackable</span>
+            <a className="hover:text-neutral-700" href="mailto:hello@snackable.ooo">hello@snackable.ooo</a>
+          </footer>
         </div>
-      </div>
-    </section>
+      );
+    }
 
-    <!-- SERVICES -->
-    <section id="services" class="section">
-      <div class="container">
-        <h2>What we do</h2>
-        <p class="section-intro">From content calendars to creator-grade edits.</p>
-        <div class="cards">
-          <article class="card">
-            <h3>Content Strategy</h3>
-            <p>Audience research, pillars, growth loops, and measurable goals.</p>
-            <ul>
-              <li>Audit & positioning</li>
-              <li>Pillars & hooks</li>
-              <li>KPIs & dashboards</li>
-            </ul>
-          </article>
-          <article class="card">
-            <h3>Production</h3>
-            <p>Short-form video, reels/shorts, motion graphics, and thumbnails.</p>
-            <ul>
-              <li>Scripting & shoots</li>
-              <li>Edit & motion</li>
-              <li>Thumbnail design</li>
-            </ul>
-          </article>
-          <article class="card">
-            <h3>Channel Ops</h3>
-            <p>Calendar, publishing, community, and reporting that compounds.</p>
-            <ul>
-              <li>Scheduling & posting</li>
-              <li>Moderation & replies</li>
-              <li>Monthly analytics</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- WORK -->
-    <section id="work" class="section alt">
-      <div class="container">
-        <h2>Recent work</h2>
-        <div class="grid-2">
-          <figure class="case">
-            <img src="assets/case-1.jpg" alt="Case study 1 thumbnail" />
-            <figcaption>
-              <h3>CPG launch: 2.3× CTR</h3>
-              <p>Short-form series across TikTok & IG Reels drove awareness and trial.</p>
-            </figcaption>
-          </figure>
-          <figure class="case">
-            <img src="assets/case-2.jpg" alt="Case study 2 thumbnail" />
-            <figcaption>
-              <h3>Local brand: 4.1× engagement</h3>
-              <p>Hook-led edits + UGC remixing built a repeatable growth loop.</p>
-            </figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about" class="section">
-      <div class="container narrow">
-        <h2>About Snackable</h2>
-        <p>We’re strategists, editors, and creators who believe the best marketing is useful, human, and fast to ship. We keep things lightweight and outcome-focused.</p>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="section cta">
-      <div class="container cta-box">
-        <h2>Have a project in mind?</h2>
-        <p>Tell us your goals and we’ll send back ideas (free).</p>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="mailto:hello@snackable.agency">hello@snackable.agency</a>
-          <a class="btn btn-ghost" href="https://cal.com/YOUR-HANDLE/snackable">Book a call</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div class="foot-brand">
-        <img src="assets/logo.svg" alt="" class="logo small" />
-        <strong>Snackable</strong>
-        <span class="muted">Social Media Marketing</span>
-      </div>
-      <nav class="foot-links" aria-label="Footer">
-        <a href="#services">Services</a>
-        <a href="#work">Work</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <div class="foot-social">
-        <a href="https://www.instagram.com/yourhandle" aria-label="Instagram">IG</a>
-        <a href="https://www.tiktok.com/@yourhandle" aria-label="TikTok">TT</a>
-        <a href="https://www.linkedin.com/company/yourhandle" aria-label="LinkedIn">IN</a>
-      </div>
-    </div>
-    <div class="container legal">
-      <small>© <span id="year"></span> Snackable. All rights reserved.</small>
-    </div>
-  </footer>
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(<SnackableLanding />);
+    // set year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
