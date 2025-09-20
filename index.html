@@ -6,10 +6,12 @@
   <title>Snackable — Bite-sized social, big results</title>
   <meta name="description" content="Snackable is a social-first micro-marketing studio. We whip up snack-sized content and strategy that audiences actually crave." />
 
+  <!-- Favicon (optional) -->
+  <link rel="icon" href="favicon.png" type="image/png" />
+
   <!-- Tailwind (Play CDN) -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    // Optional Tailwind tweaks if you want
     tailwind.config = {
       theme: {
         extend: {
@@ -35,7 +37,7 @@
 <body class="text-slate-900">
   <div id="root"></div>
 
-  <!-- React + ReactDOM + Babel (so we can write JSX in one file) -->
+  <!-- React + ReactDOM + Babel -->
   <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -44,24 +46,23 @@
     function SnackableLanding() {
       return (
         <div className="min-h-screen bg-white">
-          <!-- Top Bar -->
-          <header class="sticky top-0 z-20 backdrop-blur supports-[backdrop-filter]:bg-white/70 border-b border-neutral-200">
-            <div class="mx-auto max-w-6xl px-4 py-4 flex items-center justify-between">
-              <div class="flex items-center gap-3">
-          <!-- Replace this span block with your logo -->
-              <img src="assets/logo.png" alt="Snackable Logo" class="h-8 w-auto" />
-              <span class="font-semibold tracking-tight">Snackable</span>
+          {/* Header */}
+          <header className="sticky top-0 z-20 backdrop-blur supports-[backdrop-filter]:bg-white/70 border-b border-neutral-200">
+            <div className="mx-auto max-w-6xl px-4 py-4 flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <img src="assets/logo.png" alt="Snackable Logo" className="h-8 w-auto" />
+                <span className="font-semibold tracking-tight">Snackable</span>
+              </div>
+              <a href="#contact" className="text-sm font-medium rounded-xl px-4 py-2 border border-neutral-300 hover:border-neutral-400 transition">Let’s Talk</a>
             </div>
-            <a href="#contact" class="text-sm font-medium rounded-xl px-4 py-2 border border-neutral-300 hover:border-neutral-400 transition">Let’s Talk</a>
-          </div>
-        </header>
+          </header>
 
           {/* Hero */}
           <section className="relative">
             <div className="mx-auto max-w-6xl px-4 py-20 md:py-28 grid md:grid-cols-2 gap-10 items-center">
               <div>
                 <h1 className="text-4xl md:text-6xl font-extrabold leading-tight" style={{color:"var(--ink)"}}>
-                  Snackable content that keeps you coming back for more.
+                  Snackable content that keeps you coming back for more.<br />
                 </h1>
                 <p className="mt-5 text-lg text-neutral-700 max-w-prose">
                   We whip up bite-sized content that audiences crave —
@@ -103,12 +104,10 @@
                 </div>
               </div>
             </div>
-
-            {/* Soft brand background */}
             <div className="absolute inset-x-0 -z-10 top-0 h-[40vh]" style={{background:"linear-gradient(180deg, rgba(255,177,174,0.35), rgba(255,177,174,0))"}} />
           </section>
 
-          {/* Value */}
+          {/* Values */}
           <section className="mx-auto max-w-6xl px-4 py-10" id="value">
             <div className="grid sm:grid-cols-3 gap-6">
               {[
@@ -181,7 +180,6 @@
 
     const root = ReactDOM.createRoot(document.getElementById("root"));
     root.render(<SnackableLanding />);
-    // set year
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
