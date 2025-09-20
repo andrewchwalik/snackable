@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://YOUR-USERNAME.github.io/snackable-site/sitemap.xml
+Sitemap: https://andrewchwalik.github.io/snackable/sitemap.xml
