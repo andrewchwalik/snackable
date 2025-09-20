@@ -44,18 +44,17 @@
     function SnackableLanding() {
       return (
         <div className="min-h-screen bg-white">
-          {/* Top Bar */}
-          <header className="sticky top-0 z-20 backdrop-blur supports-[backdrop-filter]:bg-white/70 border-b border-neutral-200">
-            <div className="mx-auto max-w-6xl px-4 py-4 flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <span className="inline-flex h-8 w-8 items-center justify-center rounded-xl" style={{background:"var(--brand)"}}>
-                  <span className="font-black tracking-tight text-[var(--brandDark)]">S</span>
-                </span>
-                <span className="font-semibold tracking-tight">Snackable</span>
-              </div>
-              <a href="#contact" className="text-sm font-medium rounded-xl px-4 py-2 border border-neutral-300 hover:border-neutral-400 transition">Let’s Talk</a>
+          <!-- Top Bar -->
+          <header class="sticky top-0 z-20 backdrop-blur supports-[backdrop-filter]:bg-white/70 border-b border-neutral-200">
+            <div class="mx-auto max-w-6xl px-4 py-4 flex items-center justify-between">
+              <div class="flex items-center gap-3">
+          <!-- Replace this span block with your logo -->
+              <img src="assets/logo.png" alt="Snackable Logo" class="h-8 w-auto" />
+              <span class="font-semibold tracking-tight">Snackable</span>
             </div>
-          </header>
+            <a href="#contact" class="text-sm font-medium rounded-xl px-4 py-2 border border-neutral-300 hover:border-neutral-400 transition">Let’s Talk</a>
+          </div>
+        </header>
 
           {/* Hero */}
           <section className="relative">
