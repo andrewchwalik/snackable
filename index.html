@@ -18,11 +18,10 @@
       theme: {
         extend: {
           colors: {
-            brand: "#FFB1AE",
-            brandDark: "#CB2832",
-            ink: "#0f172a",
-            crust: "#FFF6EE",
-            zest: "#FFCB47",
+            brand: "#CB2832",       // primary red
+            brandLight: "#FFEFF0",  // soft red tint background
+            accent: "#F3B23A",      // golden yellow accent
+            ink: "#0f172a",         // dark text
           },
           fontFamily: {
             display: ['"Fredoka"', 'sans-serif'],
@@ -35,12 +34,12 @@
 
   <style>
     html, body {
-      background: #FFF6EE;
+      background: #FFEFF0;
       font-family: "Inter", sans-serif;
     }
   </style>
 </head>
-<body class="text-slate-900">
+<body class="text-ink">
   <div id="root"></div>
 
   <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
@@ -52,10 +51,10 @@
       return (
         <div className="min-h-screen">
           {/* Header */}
-          <header className="sticky top-0 z-20 backdrop-blur supports-[backdrop-filter]:bg-brand/80 border-b border-brandDark">
+          <header className="sticky top-0 z-20 backdrop-blur supports-[backdrop-filter]:bg-brand/80 border-b border-brand">
             <div className="mx-auto max-w-6xl px-4 py-4 flex items-center justify-between">
               <img src="assets/logo.png" alt="Snackable Logo" className="h-12 w-auto md:h-16" />
-              <a href="#contact" className="text-sm font-medium rounded-xl px-4 py-2 border border-brandDark text-brandDark bg-white hover:bg-brandDark hover:text-white transition">Snack Chat</a>
+              <a href="#contact" className="text-sm font-medium rounded-xl px-4 py-2 border border-brand text-brand bg-white hover:bg-brand hover:text-white transition">Snack Chat</a>
             </div>
           </header>
 
@@ -66,44 +65,32 @@
             </div>
             <div className="mx-auto max-w-6xl px-4 py-20 md:py-28 grid md:grid-cols-2 gap-10 items-center">
               <div>
-                <h1 className="text-4xl md:text-6xl font-display font-extrabold leading-tight text-brandDark">
+                <h1 className="text-4xl md:text-6xl font-display font-extrabold leading-tight text-brand">
                   Bite-sized content that packs a punch.
                 </h1>
                 <p className="mt-5 text-lg text-ink max-w-prose">
                   Irresistible. Scroll-stopping. Served hot and fresh. Just like a great snack.
                 </p>
                 <div className="mt-8 flex flex-wrap items-center gap-3">
-                  <a href="#menu" className="rounded-2xl px-5 py-3 text-base font-semibold bg-brandDark text-white hover:opacity-90">
+                  <a href="#menu" className="rounded-2xl px-5 py-3 text-base font-semibold bg-brand text-white hover:opacity-90">
                     Browse the Snack Bar
                   </a>
-                  <a href="#contact" className="rounded-2xl px-5 py-3 text-base font-semibold border border-brandDark text-brandDark bg-white hover:bg-brandDark hover:text-white transition">
+                  <a href="#contact" className="rounded-2xl px-5 py-3 text-base font-semibold border border-brand text-brand bg-white hover:bg-brand hover:text-white transition">
                     Build Your Snack
                   </a>
                 </div>
-                <div className="mt-6 text-sm text-brandDark">Avg. delivery: 7–14 days • Always fresh, never stale</div>
+                <div className="mt-6 text-sm text-brand">Avg. delivery: 7–14 days • Always fresh, never stale</div>
               </div>
 
               {/* Hero Card */}
               <div className="relative">
-                <div className="rounded-3xl shadow-xl border border-brandDark overflow-hidden bg-white">
+                <div className="rounded-3xl shadow-xl border border-brand overflow-hidden bg-white">
                   <div className="p-6">
-                    <div className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium bg-brand">
-                      <span className="h-2 w-2 rounded-full bg-brandDark" /> Chef’s Pick
+                    <div className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium bg-brandLight">
+                      <span className="h-2 w-2 rounded-full bg-brand" /> Chef’s Pick
                     </div>
-                    <h3 className="mt-3 text-xl font-bold text-brandDark">One-page funnel + social snack pack</h3>
+                    <h3 className="mt-3 text-xl font-bold text-brand">One-page funnel + social snack pack</h3>
                     <p className="mt-1 text-sm text-neutral-600">Landing page, 5 ready-to-post socials, and ad copy. Served hot in one week.</p>
-                  </div>
-                  <div className="p-6 grid grid-cols-3 divide-x divide-neutral-200">
-                    {[
-                      {label:"Landing", value:"1 page"},
-                      {label:"Posts", value:"5 snacks"},
-                      {label:"Ads", value:"Basic setup"},
-                    ].map((k, i) => (
-                      <div key={i} className="px-3">
-                        <div className="text-xs text-neutral-500">{k.label}</div>
-                        <div className="text-lg font-semibold">{k.value}</div>
-                      </div>
-                    ))}
                   </div>
                 </div>
               </div>
@@ -118,53 +105,27 @@
                 {title:"Simple", desc:"No jargon, no fluff. Just tasty content."},
                 {title:"Measurable", desc:"We track what matters so you know what’s cooking."},
               ].map((item, i) => (
-                <div key={i} className="rounded-3xl border border-brandDark p-6 bg-white hover:shadow-md transition">
-                  <div className="text-sm font-semibold text-brandDark">{item.title}</div>
+                <div key={i} className="rounded-3xl border border-brand p-6 bg-white hover:shadow-md transition">
+                  <div className="text-sm font-semibold text-brand">{item.title}</div>
                   <div className="mt-1 text-base text-ink">{item.desc}</div>
                 </div>
               ))}
             </div>
           </section>
 
-          {/* Packages */}
-          <section className="mx-auto max-w-6xl px-4 py-8" id="menu">
-            <h2 className="text-2xl md:text-3xl font-bold text-brandDark">Snack Bar</h2>
-            <p className="mt-2 text-ink">Pick your flavor. Every package comes fresh—no stale leftovers.</p>
-            <div className="mt-6 grid md:grid-cols-3 gap-6">
-              {[
-                {name:"Snack Pack", price:"$1,500", bullets:["1-page site or funnel","5 snackable posts","1 ad concept"], cta:"Order Snack Pack"},
-                {name:"Combo Meal", price:"$3,000", bullets:["Landing + email capture","8 posts","2 ad concepts"], cta:"Order Combo"},
-                {name:"Full Feast", price:"$5,000", bullets:["Mini campaign (2 weeks)","12 posts","Ads + analytics"], cta:"Order Feast"},
-              ].map((p, i) => (
-                <div key={i} className="rounded-3xl border border-brandDark p-6 flex flex-col bg-white">
-                  <div className="text-sm font-semibold text-brandDark">{p.name}</div>
-                  <div className="mt-1 text-3xl font-extrabold text-ink">{p.price}</div>
-                  <ul className="mt-4 space-y-2 text-sm text-ink">
-                    {p.bullets.map((b, idx)=> (
-                      <li key={idx} className="flex items-start gap-2">
-                        <span className="mt-1 h-2 w-2 rounded-full bg-brandDark"></span>{b}
-                      </li>
-                    ))}
-                  </ul>
-                  <a href="#contact" className="mt-6 inline-flex justify-center rounded-2xl px-4 py-2 font-semibold bg-brand text-brandDark hover:bg-brandDark hover:text-white transition">
-                    {p.cta}
-                  </a>
-                </div>
-              ))}
-            </div>
-          </section>
+          {/* Removed Pricing Menu Section */}
 
           {/* Contact */}
           <section id="contact" className="mx-auto max-w-6xl px-4 py-16">
-            <div className="rounded-3xl p-8 md:p-10 border border-brandDark overflow-hidden relative bg-white">
-              <h3 className="text-2xl md:text-3xl font-bold text-brandDark">Hungry for better content?</h3>
+            <div className="rounded-3xl p-8 md:p-10 border border-brand overflow-hidden relative bg-white">
+              <h3 className="text-2xl md:text-3xl font-bold text-brand">Hungry for better content?</h3>
               <p className="mt-2 text-ink max-w-prose">Drop us a note. We’ll cook up a plan that’s right for your brand—served fresh and fast.</p>
               <form className="mt-6 grid md:grid-cols-3 gap-3">
                 <input className="rounded-xl border border-neutral-300 px-4 py-3" placeholder="Name" />
                 <input type="email" className="rounded-xl border border-neutral-300 px-4 py-3" placeholder="Email" />
                 <input className="rounded-xl border border-neutral-300 px-4 py-3 md:col-span-1" placeholder="Company / Project" />
                 <textarea className="rounded-xl border border-neutral-300 px-4 py-3 md:col-span-3" rows="4" placeholder="What kind of content do you crave?"></textarea>
-                <button type="button" className="md:col-span-3 rounded-2xl px-5 py-3 font-semibold text-white bg-brandDark hover:opacity-90">
+                <button type="button" className="md:col-span-3 rounded-2xl px-5 py-3 font-semibold text-white bg-brand hover:opacity-90">
                   Serve it up
                 </button>
               </form>
@@ -172,7 +133,7 @@
           </section>
 
           {/* Footer */}
-          <footer className="mx-auto max-w-6xl px-4 py-10 text-sm text-brandDark flex items-center justify-between">
+          <footer className="mx-auto max-w-6xl px-4 py-10 text-sm text-brand flex items-center justify-between">
             <span>© <span id="year"></span> Snackable</span>
             <a className="hover:text-ink" href="mailto:hello@snackable.ooo">hello@snackable.ooo</a>
           </footer>
