@@ -18,10 +18,10 @@
       theme: {
         extend: {
           colors: {
-            brand: "#CB2832",       // primary red
-            brandLight: "#FFEFF0",  // soft red tint background
-            accent: "#F3B23A",      // golden yellow accent
-            ink: "#0f172a",         // dark text
+            brand: "#CB2832",
+            brandLight: "#FFEFF0",
+            accent: "#F3B23A",
+            ink: "#0f172a",
           },
           fontFamily: {
             display: ['"Fredoka"', 'sans-serif'],
@@ -51,7 +51,7 @@
       return (
         <div className="min-h-screen">
           {/* Header */}
-          <header className="sticky top-0 z-20 backdrop-blur supports-[backdrop-filter]:bg-brand/80 border-b border-brand">
+          <header className="sticky top-0 z-20 backdrop-blur bg-transparent border-b border-brand">
             <div className="mx-auto max-w-6xl px-4 py-4 flex items-center justify-between">
               <img src="assets/logo.png" alt="Snackable Logo" className="h-12 w-auto md:h-16" />
               <a href="#contact" className="text-sm font-medium rounded-xl px-4 py-2 border border-brand text-brand bg-white hover:bg-brand hover:text-white transition">Snack Chat</a>
@@ -112,8 +112,6 @@
               ))}
             </div>
           </section>
-
-          {/* Removed Pricing Menu Section */}
 
           {/* Contact */}
           <section id="contact" className="mx-auto max-w-6xl px-4 py-16">
