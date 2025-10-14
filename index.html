@@ -3,11 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Snackable — Bite-sized social, big results</title>
+  <title>Snackable — Bite-sized content that packs a punch</title>
   <meta name="description" content="Snackable is a social-first micro-marketing studio. We whip up snack-sized content and strategy that audiences actually crave." />
 
-  <!-- Favicon (optional) -->
   <link rel="icon" href="favicon.png" type="image/png" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
   <!-- Tailwind (Play CDN) -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -19,6 +21,12 @@
             brand: "#FFB1AE",
             brandDark: "#CB2832",
             ink: "#0f172a",
+            crust: "#FFF6EE",
+            zest: "#FFCB47",
+          },
+          fontFamily: {
+            display: ['"Fredoka"', 'sans-serif'],
+            body: ['"Inter"', 'sans-serif']
           }
         }
       }
@@ -26,20 +34,15 @@
   </script>
 
   <style>
-    :root {
-      --brand:#FFB1AE;
-      --brandDark:#CB2832;
-      --ink:#0f172a;
-    }
     html, body {
-      background: var(--brand);
+      background: #FFF6EE;
+      font-family: "Inter", sans-serif;
     }
   </style>
 </head>
 <body class="text-slate-900">
   <div id="root"></div>
 
-  <!-- React + ReactDOM + Babel -->
   <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -47,35 +50,37 @@
   <script type="text/babel">
     function SnackableLanding() {
       return (
-        <div className="min-h-screen bg-brand">
+        <div className="min-h-screen">
           {/* Header */}
           <header className="sticky top-0 z-20 backdrop-blur supports-[backdrop-filter]:bg-brand/80 border-b border-brandDark">
             <div className="mx-auto max-w-6xl px-4 py-4 flex items-center justify-between">
               <img src="assets/logo.png" alt="Snackable Logo" className="h-12 w-auto md:h-16" />
-              <a href="#contact" className="text-sm font-medium rounded-xl px-4 py-2 border border-brandDark text-brandDark bg-white hover:bg-brandDark hover:text-white transition">Let’s Talk</a>
+              <a href="#contact" className="text-sm font-medium rounded-xl px-4 py-2 border border-brandDark text-brandDark bg-white hover:bg-brandDark hover:text-white transition">Snack Chat</a>
             </div>
           </header>
 
           {/* Hero */}
           <section className="relative">
+            <div className="absolute right-0 top-0 hidden md:block">
+              <img src="assets/mascot.png" alt="Snackable Mascot" className="w-48" />
+            </div>
             <div className="mx-auto max-w-6xl px-4 py-20 md:py-28 grid md:grid-cols-2 gap-10 items-center">
               <div>
-                <h1 className="text-4xl md:text-6xl font-extrabold leading-tight text-brandDark">
-                  Snackable content that keeps you coming back for more.
+                <h1 className="text-4xl md:text-6xl font-display font-extrabold leading-tight text-brandDark">
+                  Bite-sized content that packs a punch.
                 </h1>
                 <p className="mt-5 text-lg text-ink max-w-prose">
-                  We whip up bite-sized content that audiences crave —
-                  thumb-stopping content that’s easy to digest.
+                  Irresistible. Scroll-stopping. Served hot and fresh. Just like a great snack.
                 </p>
                 <div className="mt-8 flex flex-wrap items-center gap-3">
                   <a href="#menu" className="rounded-2xl px-5 py-3 text-base font-semibold bg-brandDark text-white hover:opacity-90">
-                    See the menu
+                    Browse the Snack Bar
                   </a>
                   <a href="#contact" className="rounded-2xl px-5 py-3 text-base font-semibold border border-brandDark text-brandDark bg-white hover:bg-brandDark hover:text-white transition">
-                    Order custom
+                    Build Your Snack
                   </a>
                 </div>
-                <div className="mt-6 text-sm text-brandDark">Average delivery: 7–14 days • Always fresh, never stale</div>
+                <div className="mt-6 text-sm text-brandDark">Avg. delivery: 7–14 days • Always fresh, never stale</div>
               </div>
 
               {/* Hero Card */}
@@ -123,7 +128,7 @@
 
           {/* Packages */}
           <section className="mx-auto max-w-6xl px-4 py-8" id="menu">
-            <h2 className="text-2xl md:text-3xl font-bold text-brandDark">Our Menu</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-brandDark">Snack Bar</h2>
             <p className="mt-2 text-ink">Pick your flavor. Every package comes fresh—no stale leftovers.</p>
             <div className="mt-6 grid md:grid-cols-3 gap-6">
               {[
@@ -160,7 +165,7 @@
                 <input className="rounded-xl border border-neutral-300 px-4 py-3 md:col-span-1" placeholder="Company / Project" />
                 <textarea className="rounded-xl border border-neutral-300 px-4 py-3 md:col-span-3" rows="4" placeholder="What kind of content do you crave?"></textarea>
                 <button type="button" className="md:col-span-3 rounded-2xl px-5 py-3 font-semibold text-white bg-brandDark hover:opacity-90">
-                  Send order
+                  Serve it up
                 </button>
               </form>
             </div>
