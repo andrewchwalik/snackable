@@ -3,15 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Snackable — Bite-sized content that packs a punch</title>
+  <title>Snackable — Content the crave-worthy way</title>
   <meta name="description" content="Snackable is a social-first micro-marketing studio. We whip up snack-sized content and strategy that audiences actually crave." />
 
   <link rel="icon" href="favicon.png" type="image/png" />
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-
-  <!-- Tailwind (Play CDN) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -20,105 +16,122 @@
           colors: {
             brand: "#CB2832",
             brandLight: "#FFEFF0",
-            accent: "#F3B23A",
-            ink: "#0f172a",
+            dark: "#0f0f0f",
+            gray: "#1a1a1a",
+            accent: "#CBFF47",
+            ink: "#F5F5F5"
           },
           fontFamily: {
-            display: ['"Fredoka"', 'sans-serif'],
-            body: ['"Inter"', 'sans-serif']
+            sans: ['"Inter"', 'sans-serif']
           }
         }
       }
     }
   </script>
-
   <style>
     html, body {
-      background: #FFEFF0;
-      font-family: "Inter", sans-serif;
+      background: #0f0f0f;
+      font-family: 'Inter', sans-serif;
+      color: #F5F5F5;
     }
   </style>
 </head>
-<body class="text-ink">
-  <div id="root"></div>
+<body>
+  <main class="min-h-screen bg-dark text-ink">
+    <!-- Hero -->
+    <section class="text-center px-4 py-24">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-xs uppercase tracking-wide text-accent mb-4">Snackable presents</div>
+        <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6">
+          Content work,<br class="hidden md:inline" /> the crave-worthy way
+        </h1>
+        <p class="text-lg text-gray-400 max-w-xl mx-auto mb-8">
+          Content solutions for marketers, brands, and creators who need ideas fast, execution faster, and quality that sticks.
+        </p>
+        <form class="flex justify-center gap-2 max-w-md mx-auto">
+          <input type="email" class="w-full px-4 py-3 rounded-lg bg-gray border border-gray-700 placeholder-gray-500 text-sm" placeholder="you@brand.com" />
+          <button type="submit" class="px-4 py-3 rounded-lg bg-accent text-black font-semibold hover:opacity-90 transition">Get started</button>
+        </form>
+      </div>
+    </section>
 
-  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- Logos -->
+    <section class="py-10">
+      <div class="flex justify-center gap-6 flex-wrap opacity-60">
+        <img src="assets/logo1.svg" alt="Logo 1" class="h-6" />
+        <img src="assets/logo2.svg" alt="Logo 2" class="h-6" />
+        <img src="assets/logo3.svg" alt="Logo 3" class="h-6" />
+        <img src="assets/logo4.svg" alt="Logo 4" class="h-6" />
+      </div>
+    </section>
 
-  <script type="text/babel">
-    function SnackableLanding() {
-      return (
-        <div className="min-h-screen">
-          {/* Header */}
-          <header className="sticky top-0 z-20 backdrop-blur bg-transparent border-b border-brand">
-            <div className="mx-auto max-w-6xl px-4 py-4 flex items-center justify-between">
-              <img src="assets/logo.png" alt="Snackable Logo" className="h-12 w-auto md:h-16" />
-              <a href="#contact" className="text-sm font-medium rounded-xl px-4 py-2 border border-brand text-brand bg-white hover:bg-brand hover:text-white transition">Snack Chat</a>
-            </div>
-          </header>
-
-          {/* Simplified Hero */}
-          <section className="py-24 md:py-32">
-            <div className="mx-auto max-w-4xl px-4 text-center">
-              <h1 className="text-4xl md:text-6xl font-display font-extrabold leading-tight text-brand">
-                We’re Snackable, <br />and we’re obsessed with craveable content.
-              </h1>
-              <p className="mt-4 text-lg text-ink max-w-2xl mx-auto">
-                Strategy + Social + Web + Campaigns — all cooked up fast and fresh.
-              </p>
-              <div className="mt-8">
-                <a href="#contact" className="inline-block rounded-xl px-6 py-3 text-base font-semibold bg-brand text-white hover:opacity-90">
-                  Let’s Dish
-                </a>
-              </div>
-            </div>
-          </section>
-
-          {/* Values */}
-          <section className="mx-auto max-w-6xl px-4 py-10" id="value">
-            <div className="grid sm:grid-cols-3 gap-6">
-              {[
-                {title:"Fast", desc:"Quick bites, quick wins. We serve at speed."},
-                {title:"Simple", desc:"No jargon, no fluff. Just tasty content."},
-                {title:"Measurable", desc:"We track what matters so you know what’s cooking."},
-              ].map((item, i) => (
-                <div key={i} className="rounded-3xl border border-brand p-6 bg-white hover:shadow-md transition">
-                  <div className="text-sm font-semibold text-brand">{item.title}</div>
-                  <div className="mt-1 text-base text-ink">{item.desc}</div>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* Contact */}
-          <section id="contact" className="mx-auto max-w-6xl px-4 py-16">
-            <div className="rounded-3xl p-8 md:p-10 border border-brand overflow-hidden relative bg-white">
-              <h3 className="text-2xl md:text-3xl font-bold text-brand">Hungry for better content?</h3>
-              <p className="mt-2 text-ink max-w-prose">Drop us a note. We’ll cook up a plan that’s right for your brand—served fresh and fast.</p>
-              <form className="mt-6 grid md:grid-cols-3 gap-3">
-                <input className="rounded-xl border border-neutral-300 px-4 py-3" placeholder="Name" />
-                <input type="email" className="rounded-xl border border-neutral-300 px-4 py-3" placeholder="Email" />
-                <input className="rounded-xl border border-neutral-300 px-4 py-3 md:col-span-1" placeholder="Company / Project" />
-                <textarea className="rounded-xl border border-neutral-300 px-4 py-3 md:col-span-3" rows="4" placeholder="What kind of content do you crave?"></textarea>
-                <button type="button" className="md:col-span-3 rounded-2xl px-5 py-3 font-semibold text-white bg-brand hover:opacity-90">
-                  Serve it up
-                </button>
-              </form>
-            </div>
-          </section>
-
-          {/* Footer */}
-          <footer className="mx-auto max-w-6xl px-4 py-10 text-sm text-brand flex items-center justify-between">
-            <span>© <span id="year"></span> Snackable</span>
-            <a className="hover:text-ink" href="mailto:hello@snackable.ooo">hello@snackable.ooo</a>
-          </footer>
+    <!-- Problem & Solution -->
+    <section class="py-20 bg-gray">
+      <div class="max-w-5xl mx-auto px-4">
+        <div class="text-center mb-12">
+          <div class="text-accent text-xs font-semibold uppercase mb-2">What we do</div>
+          <h2 class="text-3xl md:text-4xl font-bold">We whip up solutions for content problems.</h2>
         </div>
-      );
-    }
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-dark p-6 rounded-xl border border-gray-700">
+            <h3 class="text-xl font-semibold mb-2">Ghost-mode ideation</h3>
+            <p class="text-gray-400">No time to brainstorm? We’ll handle the creative thinking for you.</p>
+          </div>
+          <div class="bg-dark p-6 rounded-xl border border-gray-700">
+            <h3 class="text-xl font-semibold mb-2">Snack-sized execution</h3>
+            <p class="text-gray-400">Bite-sized videos, posts, captions, and ads you can publish fast.</p>
+          </div>
+          <div class="bg-dark p-6 rounded-xl border border-gray-700">
+            <h3 class="text-xl font-semibold mb-2">Scalable strategy</h3>
+            <p class="text-gray-400">One-off projects or always-on content machines. You choose.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    const root = ReactDOM.createRoot(document.getElementById("root"));
-    root.render(<SnackableLanding />);
+    <!-- How it works -->
+    <section class="py-20">
+      <div class="max-w-4xl mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold mb-10">From idea to asset, fast.</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div>
+            <div class="text-accent text-2xl mb-2">1</div>
+            <h3 class="font-semibold text-lg mb-1">Tell us what you need</h3>
+            <p class="text-gray-400">From social posts to landing pages, we’ve got it covered.</p>
+          </div>
+          <div>
+            <div class="text-accent text-2xl mb-2">2</div>
+            <h3 class="font-semibold text-lg mb-1">Get your goodies</h3>
+            <p class="text-gray-400">Delivered in days, optimized for performance.</p>
+          </div>
+          <div>
+            <div class="text-accent text-2xl mb-2">3</div>
+            <h3 class="font-semibold text-lg mb-1">Repeat as needed</h3>
+            <p class="text-gray-400">Subscribe or scale with on-demand creative.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-24 bg-gray">
+      <div class="max-w-xl mx-auto px-4 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">Elevate your content game</h2>
+        <p class="text-gray-400 mb-6">We’ll help your brand show up, stand out, and stay top of mind.</p>
+        <form class="flex justify-center gap-2">
+          <input type="email" class="w-full px-4 py-3 rounded-lg bg-dark border border-gray-700 placeholder-gray-500 text-sm" placeholder="you@brand.com" />
+          <button type="submit" class="px-4 py-3 rounded-lg bg-accent text-black font-semibold hover:opacity-90 transition">Get started</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-10 text-center text-sm text-gray-500">
+      <p>© <span id="year"></span> Snackable • Content that keeps them coming back</p>
+    </footer>
+  </main>
+
+  <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
