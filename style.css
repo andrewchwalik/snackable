@@ -55,12 +55,12 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 3rem;
+  padding: 1.5rem 3rem;
   max-width: 100%;
 }
 
 .logo {
-  height: 40px;
+  height: 45px;
 }
 
 .nav-links {
@@ -92,10 +92,19 @@ body {
 
 /* Hero content */
 .hero-content {
-  padding: 4rem 5vw 3rem;
-  text-align: left;
+  padding: 4rem 5vw 6rem;
   max-width: 1400px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  flex-grow: 1;
+}
+
+.hero-text-wrapper {
+  margin-top: 3rem;
+  margin-bottom: 2rem;
 }
 
 .hero-line1 {
@@ -123,11 +132,11 @@ body {
 }
 
 .hero-subtext {
-  margin-top: 2rem;
   font-size: 1rem;
   max-width: 700px;
   line-height: 1.6;
   color: #333;
+  text-align: left;
 }
 
 /* Definition section */
