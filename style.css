@@ -1,4 +1,4 @@
-/* Reset and basics */
+/* Reset & basics */
 * {
   margin: 0;
   padding: 0;
@@ -12,44 +12,40 @@ body {
   overflow-x: hidden;
 }
 
-/* Header styles */
+/* Header */
 .header {
   position: relative;
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   background-color: #FFFBE2;
-  padding: 2rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  overflow: hidden;
+  align-items: center;
+  /* no padding-top so hero text centers vertically */
 }
 
 /* Navbar */
 .navbar {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 3rem;
   z-index: 2;
 }
-
 .logo {
-  height: 40px;
+  height: 48px;
 }
-
 .nav-links {
   display: flex;
   gap: 2rem;
   font-size: 0.9rem;
 }
-
 .nav-links a {
   color: #1c1c1c;
   text-decoration: none;
   font-weight: 500;
 }
-
 .cta-button {
   background-color: #fbd234;
   color: #1c1c1c;
@@ -60,92 +56,19 @@ body {
   font-size: 0.9rem;
   transition: background-color 0.3s ease;
 }
-
 .cta-button:hover {
   background-color: #f2c300;
 }
 
-/* Hero content */
-.hero-content {
-  padding: 4rem 5vw 3rem;
-  text-align: left;
-  max-width: 1400px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 2;
-}
-
-.hero-line1 {
-  font-size: 3rem;
-  font-weight: bold;
-  color: #1c1c1c;
-  text-align: left;
-}
-
-.hero-line2 {
-  font-size: 3rem;
-  font-weight: bold;
-  text-align: right;
-  margin-top: 0.5rem;
-  color: #1c1c1c;
-}
-
-.crave {
-  font-family: 'Fredoka', sans-serif;
-  font-weight: 700;
-  font-size: 3.2rem;
-  background: linear-gradient(to right, #fbd234, #f97b22);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.hero-subtext {
-  margin-top: 2rem;
-  font-size: 1rem;
-  max-width: 700px;
-  line-height: 1.6;
-  color: #333;
-}
-
-/* Definition section */
-.definition {
-  padding: 5rem 2rem 6rem;
-  text-align: center;
-  background-color: #FFFBE2;
-  color: #1c1c1c;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.definition h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-.brand-name {
-  font-weight: bold;
-  color: #FDA53A;
-}
-
-.phonetic {
-  margin-left: 0.5rem;
-  font-style: italic;
-  color: #888;
-}
-
-.noun {
-  margin-left: 0.5rem;
-  font-style: italic;
-  color: #aaa;
-}
-
-.definition p {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  margin-top: 1rem;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
+/* Sprinkle container */
+.sprinkle-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
 }
 
 /* Sprinkles */
@@ -154,19 +77,141 @@ body {
   width: 24px;
   height: 8px;
   border-radius: 4px;
-  z-index: 1;
   opacity: 0.9;
-  transform: rotate(45deg);
 }
 
-/* Individual sprinkle placements and colors */
-.sprinkle1 { top: 60px; left: 50px; background: #f97b22; transform: rotate(30deg); }
-.sprinkle2 { top: 100px; right: 80px; background: #fbd234; transform: rotate(-30deg); }
-.sprinkle3 { top: 200px; left: 150px; background: #FDA53A; transform: rotate(15deg); }
-.sprinkle4 { top: 300px; right: 200px; background: #f97b22; transform: rotate(-45deg); }
-.sprinkle5 { top: 120px; left: 300px; background: #fbd234; transform: rotate(60deg); }
-.sprinkle6 { top: 400px; left: 100px; background: #FDA53A; transform: rotate(-10deg); }
-.sprinkle7 { top: 450px; right: 50px; background: #f97b22; transform: rotate(25deg); }
-.sprinkle8 { top: 250px; left: 500px; background: #fbd234; transform: rotate(-20deg); }
-.sprinkle9 { top: 350px; right: 150px; background: #FDA53A; transform: rotate(5deg); }
-.sprinkle10 { top: 500px; left: 250px; background: #f97b22; transform: rotate(-60deg); }
+/* Specific positions/colors for the 10 sprinkles */
+.sprinkle1 {
+  top: 10%;
+  left: 8%;
+  background: #FDA53A;
+  transform: rotate(20deg);
+}
+.sprinkle2 {
+  top: 25%;
+  left: 22%;
+  background: #FF6384;
+  transform: rotate(-15deg);
+}
+.sprinkle3 {
+  top: 15%;
+  right: 18%;
+  background: #36A2EB;
+  transform: rotate(30deg);
+}
+.sprinkle4 {
+  top: 35%;
+  left: 60%;
+  background: #FFCE56;
+  transform: rotate(-30deg);
+}
+.sprinkle5 {
+  top: 55%;
+  left: 12%;
+  background: #4BC0C0;
+  transform: rotate(45deg);
+}
+.sprinkle6 {
+  top: 45%;
+  right: 25%;
+  background: #9966FF;
+  transform: rotate(-10deg);
+}
+.sprinkle7 {
+  top: 70%;
+  left: 75%;
+  background: #FF9F40;
+  transform: rotate(60deg);
+}
+.sprinkle8 {
+  top: 60%;
+  left: 40%;
+  background: #E7C6FF;
+  transform: rotate(-40deg);
+}
+.sprinkle9 {
+  top: 80%;
+  right: 10%;
+  background: #FFB638;
+  transform: rotate(15deg);
+}
+.sprinkle10 {
+  top: 30%;
+  left: 45%;
+  background: #C0FF66;
+  transform: rotate(-25deg);
+}
+
+/* Hero content */
+.hero-content {
+  z-index: 2;
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.hero-text-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.hero-line1 {
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: left;
+  color: #1c1c1c;
+}
+.hero-line2 {
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: right;
+  color: #1c1c1c;
+}
+.crave {
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 700;
+  font-size: 3.2rem;
+  background: linear-gradient(to right, #fbd234, #f97b22);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.hero-subtext {
+  margin-top: 2rem;
+  font-size: 1rem;
+  max-width: 700px;
+  line-height: 1.6;
+  color: #333;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Definition section */
+.definition {
+  padding: 5rem 2rem 6rem;
+  text-align: center;
+  background-color: #FFFBE2;
+  color: #1c1c1c;
+}
+.definition h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.brand-name {
+  font-weight: bold;
+  color: #FDA53A;
+}
+.phonetic {
+  margin-left: 0.5rem;
+  font-style: italic;
+  color: #888;
+}
+.noun {
+  margin-left: 0.5rem;
+  font-style: italic;
+  color: #aaa;
+}
+.definition p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  max-width: 600px;
+  margin: 1rem auto 0;
+}
