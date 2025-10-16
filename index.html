@@ -1,160 +1,95 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Snackable — Content the crave-worthy way</title>
-  <meta name="description" content="Snackable is a social-first micro-marketing studio. We whip up snack-sized content and strategy that audiences actually crave." />
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Snackable — Bite-sized social, big results</title>
+    <meta name="description" content="Snackable is a social-first micro-marketing studio. We whip up snack-sized content and strategy that audiences actually crave." />
 
-  <link rel="icon" href="favicon.png" type="image/png" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: "#CB2832",
-            brandLight: "#FFEFF0",
-            dark: "#0f0f0f",
-            gray: "#1a1a1a",
-            accent: "#CBFF47",
-            ink: "#F5F5F5"
-          },
-          fontFamily: {
-            sans: ['"Inter"', 'sans-serif']
+    <link rel="icon" href="favicon.png" type="image/png" />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: "#CB2832",
+              brandLight: "#FFB1AE",
+              ink: "#0f172a",
+              snackYellow: "#F9C80E",
+              snackOrange: "#F86624",
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif']
+            }
           }
         }
       }
-    }
-  </script>
-  <style>
-    html, body {
-      background: #0f0f0f;
-      font-family: 'Inter', sans-serif;
-      color: #F5F5F5;
-    }
-    .cookie-hero {
-      position: relative;
-      background-color: #0f0f0f;
-      overflow: hidden;
-    }
-    .cookie-hero::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 1000px;
-      height: 1000px;
-      background-image: url('assets/cookie-hero-half-circle.png'); /* a cookie-textured half-circle image */
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: top center;
-      z-index: 0;
-      opacity: 0.6;
-      mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
-      -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
-    }
-  </style>
-</head>
-<body>
-  <main class="min-h-screen bg-dark text-ink">
-    <!-- Hero -->
-    <section class="cookie-hero text-center px-4 py-40 relative z-10">
-      <div class="relative z-10 max-w-3xl mx-auto">
-        <div class="text-xs uppercase tracking-wide text-accent mb-4">Snackable presents</div>
-        <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6">
-          Content work,<br class="hidden md:inline" /> the crave-worthy way
-        </h1>
-        <p class="text-lg text-gray-400 max-w-xl mx-auto mb-8">
-          Content solutions for marketers, brands, and creators who need ideas fast, execution faster, and quality that sticks.
-        </p>
-        <form class="flex justify-center gap-2 max-w-md mx-auto">
-          <input type="email" class="w-full px-4 py-3 rounded-lg bg-gray border border-gray-700 placeholder-gray-500 text-sm" placeholder="you@brand.com" />
-          <button type="submit" class="px-4 py-3 rounded-lg bg-accent text-black font-semibold hover:opacity-90 transition">Get started</button>
-        </form>
-      </div>
-    </section>
+    </script>
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+    </style>
+  </head>
 
-    <!-- Logos -->
-    <section class="py-10">
-      <div class="flex justify-center gap-6 flex-wrap opacity-60">
-        <img src="assets/logo1.svg" alt="Logo 1" class="h-6" />
-        <img src="assets/logo2.svg" alt="Logo 2" class="h-6" />
-        <img src="assets/logo3.svg" alt="Logo 3" class="h-6" />
-        <img src="assets/logo4.svg" alt="Logo 4" class="h-6" />
-      </div>
-    </section>
+  <body class="bg-ink text-white">
+    <div id="root"></div>
 
-    <!-- Problem & Solution -->
-    <section class="py-20 bg-gray">
-      <div class="max-w-5xl mx-auto px-4">
-        <div class="text-center mb-12">
-          <div class="text-accent text-xs font-semibold uppercase mb-2">What we do</div>
-          <h2 class="text-3xl md:text-4xl font-bold">We whip up solutions for content problems.</h2>
-        </div>
-        <div class="grid md:grid-cols-3 gap-8">
-          <div class="bg-dark p-6 rounded-xl border border-gray-700">
-            <h3 class="text-xl font-semibold mb-2">Ghost-mode ideation</h3>
-            <p class="text-gray-400">No time to brainstorm? We’ll handle the creative thinking for you.</p>
-          </div>
-          <div class="bg-dark p-6 rounded-xl border border-gray-700">
-            <h3 class="text-xl font-semibold mb-2">Snack-sized execution</h3>
-            <p class="text-gray-400">Bite-sized videos, posts, captions, and ads you can publish fast.</p>
-          </div>
-          <div class="bg-dark p-6 rounded-xl border border-gray-700">
-            <h3 class="text-xl font-semibold mb-2">Scalable strategy</h3>
-            <p class="text-gray-400">One-off projects or always-on content machines. You choose.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- React, ReactDOM, Babel -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-    <!-- How it works -->
-    <section class="py-20">
-      <div class="max-w-4xl mx-auto px-4 text-center">
-        <h2 class="text-3xl font-bold mb-10">From idea to asset, fast.</h2>
-        <div class="grid md:grid-cols-3 gap-6">
-          <div>
-            <div class="text-accent text-2xl mb-2">1</div>
-            <h3 class="font-semibold text-lg mb-1">Tell us what you need</h3>
-            <p class="text-gray-400">From social posts to landing pages, we’ve got it covered.</p>
-          </div>
-          <div>
-            <div class="text-accent text-2xl mb-2">2</div>
-            <h3 class="font-semibold text-lg mb-1">Get your goodies</h3>
-            <p class="text-gray-400">Delivered in days, optimized for performance.</p>
-          </div>
-          <div>
-            <div class="text-accent text-2xl mb-2">3</div>
-            <h3 class="font-semibold text-lg mb-1">Repeat as needed</h3>
-            <p class="text-gray-400">Subscribe or scale with on-demand creative.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- App Code -->
+    <script type="text/babel">
+      function SnackableLanding() {
+        return (
+          <div className="min-h-screen bg-gradient-to-br from-ink to-slate-900">
+            
+            {/* Navbar */}
+            <header className="absolute top-0 left-0 right-0 z-50 px-6 py-4 flex justify-between items-center bg-transparent">
+              <img src="assets/logo.png" alt="Snackable Logo" className="h-10" />
+              <nav className="hidden md:flex gap-8 text-white font-medium">
+                <a href="#services" className="hover:text-brandLight">Services</a>
+                <a href="#about" className="hover:text-brandLight">About</a>
+                <a href="#stories" className="hover:text-brandLight">Success stories</a>
+              </nav>
+              <a href="#contact" className="ml-auto md:ml-0 rounded-full bg-snackYellow text-ink px-5 py-2 font-semibold hover:bg-snackOrange transition-all">
+                Schedule a call →
+              </a>
+            </header>
 
-    <!-- Call to Action -->
-    <section class="py-24 bg-gray">
-      <div class="max-w-xl mx-auto px-4 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">Elevate your content game</h2>
-        <p class="text-gray-400 mb-6">We’ll help your brand show up, stand out, and stay top of mind.</p>
-        <form class="flex justify-center gap-2">
-          <input type="email" class="w-full px-4 py-3 rounded-lg bg-dark border border-gray-700 placeholder-gray-500 text-sm" placeholder="you@brand.com" />
-          <button type="submit" class="px-4 py-3 rounded-lg bg-accent text-black font-semibold hover:opacity-90 transition">Get started</button>
-        </form>
-      </div>
-    </section>
+            {/* Hero Section */}
+            <section className="pt-36 md:pt-40 pb-20 px-6 md:px-16 grid md:grid-cols-2 gap-12 items-center relative">
+              {/* Hero Image */}
+              <div>
+                <img
+                  src="assets/hero-snackable.png"
+                  alt="Snackable Mascot or Image"
+                  className="rounded-xl shadow-xl"
+                />
+              </div>
 
-    <!-- Footer -->
-    <footer class="py-10 text-center text-sm text-gray-500">
-      <p>© <span id="year"></span> Snackable • Content that keeps them coming back</p>
-    </footer>
-  </main>
+              {/* Hero Text */}
+              <div className="text-left">
+                <h1 className="text-4xl md:text-6xl font-extrabold leading-tight">
+                  Your creativity<br /> multiplied,
+                  <span className="bg-gradient-to-r from-snackYellow to-snackOrange text-transparent bg-clip-text"> snackably.</span>
+                </h1>
+                <p className="mt-6 text-lg text-slate-300 max-w-lg">
+                  We are a social-first marketing studio helping creators, entrepreneurs, and small businesses serve crave-worthy content their audience can’t resist.
+                </p>
+              </div>
+            </section>
+          </div>
+        );
+      }
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-</body>
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(<SnackableLanding />);
+    </script>
+  </body>
 </html>
