@@ -21,7 +21,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* no padding-top so hero text centers vertically */
+  justify-content: center;
 }
 
 /* Navbar */
@@ -74,70 +74,70 @@ body {
 /* Sprinkles */
 .sprinkle {
   position: absolute;
-  width: 24px;
+  width: 26px;
   height: 8px;
   border-radius: 4px;
-  opacity: 0.9;
+  opacity: 0.75;
 }
 
-/* Specific positions/colors for the 10 sprinkles */
+/* Sprinkle positions — kept away from center */
 .sprinkle1 {
-  top: 10%;
-  left: 8%;
+  top: 8%;
+  left: 5%;
   background: #FDA53A;
   transform: rotate(20deg);
 }
 .sprinkle2 {
-  top: 25%;
-  left: 22%;
+  top: 18%;
+  left: 85%;
   background: #FF6384;
   transform: rotate(-15deg);
 }
 .sprinkle3 {
-  top: 15%;
-  right: 18%;
+  top: 12%;
+  right: 8%;
   background: #36A2EB;
   transform: rotate(30deg);
 }
 .sprinkle4 {
-  top: 35%;
-  left: 60%;
+  top: 30%;
+  left: 12%;
   background: #FFCE56;
   transform: rotate(-30deg);
 }
 .sprinkle5 {
-  top: 55%;
-  left: 12%;
+  top: 32%;
+  right: 10%;
   background: #4BC0C0;
   transform: rotate(45deg);
 }
 .sprinkle6 {
-  top: 45%;
-  right: 25%;
+  top: 65%;
+  left: 8%;
   background: #9966FF;
   transform: rotate(-10deg);
 }
 .sprinkle7 {
   top: 70%;
-  left: 75%;
+  right: 5%;
   background: #FF9F40;
   transform: rotate(60deg);
 }
 .sprinkle8 {
-  top: 60%;
-  left: 40%;
+  top: 78%;
+  left: 88%;
   background: #E7C6FF;
   transform: rotate(-40deg);
 }
 .sprinkle9 {
-  top: 80%;
-  right: 10%;
+  top: 85%;
+  left: 6%;
   background: #FFB638;
   transform: rotate(15deg);
 }
 .sprinkle10 {
-  top: 30%;
-  left: 45%;
+  top: 40%;
+  right: 88%;
   background: #C0FF66;
   transform: rotate(-25deg);
 }
@@ -148,6 +148,7 @@ body {
   text-align: center;
   margin-top: auto;
   margin-bottom: auto;
+  padding: 2rem 2rem;
 }
 .hero-text-block {
   display: flex;
