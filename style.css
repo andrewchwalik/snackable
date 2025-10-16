@@ -12,18 +12,31 @@ body {
   overflow-x: hidden;
 }
 
-/* Header section */
+/* HEADER */
 .header {
   position: relative;
   width: 100%;
   min-height: 100vh;
+  padding: 2rem;
+  background-color: #FFFBE2;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-image: url('assets/header.jpg'); /* ✅ This brings back the background image */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+/* Sprinkle Layer */
+.sprinkle-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('assets/sprinkles.png');
+  background-repeat: repeat;
+  background-size: 200px;
+  opacity: 0.2;
+  z-index: -1;
 }
 
 /* Navbar */
