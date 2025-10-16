@@ -1,54 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Snackable</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@700&display=swap"
-      rel="stylesheet"
-    />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      .fredoka {
-        font-family: 'Fredoka', sans-serif;
-      }
-    </style>
-  </head>
-  <body class="bg-white text-black">
-    <!-- Hero Section -->
-    <section
-      class="min-h-screen bg-cover bg-center flex flex-col"
-      style="background-image: url('assets/header_image.jpg')"
-    >
-      <!-- Navbar -->
-      <nav class="flex items-center justify-between py-6 px-6 sm:px-10 md:px-16 lg:px-24">
-        <img src="assets/snackable_logo.png" alt="Snackable Logo" class="h-10 w-auto" />
-        <div class="hidden md:flex space-x-8 text-sm">
-          <a href="#" class="hover:underline">Services</a>
-          <a href="#" class="hover:underline">About</a>
-          <a href="#" class="hover:underline">Success stories</a>
-        </div>
-        <button class="bg-yellow-300 text-sm px-5 py-2 rounded-full font-semibold shadow hover:shadow-lg transition">
-          Schedule a call →
-        </button>
-      </nav>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Snackable</title>
+  <link href="style.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <img src="header_image.jpg" alt="Background" class="header-bg" />
 
-      <!-- Header Content -->
-      <div class="flex flex-col items-center justify-center flex-grow px-4 text-center">
-        <div class="w-full max-w-5xl">
-          <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight">
-            <div class="text-left">Thumb-stopping content</div>
-            <div class="text-right">
-              your audience will <span class="text-orange-400 fredoka text-[1.15em]">crave.</span>
-            </div>
-          </h1>
-          <p class="mt-10 text-base md:text-lg max-w-2xl mx-auto text-center">
-            We are a social-first marketing studio helping creators, entrepreneurs,
-            and small businesses serve crave-worthy content their audience can’t resist.
-          </p>
-        </div>
+    <nav class="navbar">
+      <img src="snackable_logo.png" alt="Snackable Logo" class="logo" />
+      <div class="nav-links">
+        <a href="#">Services</a>
+        <a href="#">About</a>
+        <a href="#">Success stories</a>
       </div>
-    </section>
-  </body>
+      <a href="#" class="cta-button">Schedule a call →</a>
+    </nav>
+
+    <div class="hero-content">
+      <h1 class="hero-line1">Thumb-stopping content</h1>
+      <h1 class="hero-line2">your audience will <span class="crave">crave.</span></h1>
+      <p class="hero-subtext">
+        We are a social-first marketing studio helping creators, entrepreneurs, and small<br />
+        businesses serve crave-worthy content their audience can’t resist.
+      </p>
+    </div>
+
+    <div class="header-fade"></div>
+  </header>
+
+  <section class="definition">
+    <h2>
+      <span class="brand-name">snackable</span>
+      <span class="phonetic">[snak-uh-buhl]</span>
+      <span class="noun">noun</span>
+    </h2>
+    <p>
+      A social media marketing studio that helps creators and brands deliver bite-sized, scroll-stopping, thumb-friendly content that’s as tasty as it is effective. Built for digital platforms and short attention spans. Craved by audiences. Loved by algorithms.
+    </p>
+  </section>
+</body>
 </html>
