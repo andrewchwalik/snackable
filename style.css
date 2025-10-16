@@ -1,9 +1,10 @@
-/* Reset & basics */
+/* Reset and basics */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   font-family: 'Helvetica Neue', sans-serif;
   color: #1c1c1c;
@@ -11,25 +12,22 @@ body {
   overflow-x: hidden;
 }
 
-/* Header / Hero */
+/* Header section */
 .header {
   position: relative;
   width: 100%;
   min-height: 100vh;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  overflow: hidden;
-}
-.header::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url("assets/header_image.jpg");
+  background-image: url('assets/header.jpg');
   background-size: cover;
   background-position: center;
-  z-index: -2;
+  background-repeat: no-repeat;
 }
+
+/* Gradient fade at bottom */
 .header-fade {
   position: absolute;
   bottom: 0;
@@ -37,31 +35,35 @@ body {
   width: 100%;
   height: 150px;
   background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, white 100%);
-  z-index: -1;
+  z-index: 1;
 }
 
 /* Navbar */
 .navbar {
-  position: relative;
-  z-index: 2;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 3rem;
+  padding: 1rem 3rem;
+  position: relative;
+  z-index: 2;
 }
+
 .logo {
   height: 48px;
 }
+
 .nav-links {
   display: flex;
   gap: 2rem;
   font-size: 0.9rem;
 }
+
 .nav-links a {
   color: #1c1c1c;
   text-decoration: none;
   font-weight: 500;
 }
+
 .cta-button {
   background-color: #fbd234;
   color: #1c1c1c;
@@ -72,32 +74,32 @@ body {
   font-size: 0.9rem;
   transition: background-color 0.3s ease;
 }
+
 .cta-button:hover {
   background-color: #f2c300;
 }
 
-/* Hero content block (centered) */
+/* Hero content */
 .hero-content {
-  position: relative;
-  z-index: 1;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0 5vw;
-  max-width: 1200px;
+  padding: 6rem 5vw 4rem;
+  text-align: left;
+  max-width: 1400px;
   margin: 0 auto;
+  position: relative;
+  z-index: 2;
 }
-.hero-text-block {
-  /* This block holds both lines, so we can align each */
-  width: 100%;
+
+.hero-text-wrapper {
+  margin-bottom: 2rem;
 }
+
 .hero-line1 {
   font-size: 3rem;
   font-weight: bold;
-  text-align: left;
   color: #1c1c1c;
+  text-align: left;
 }
+
 .hero-line2 {
   font-size: 3rem;
   font-weight: bold;
@@ -105,6 +107,7 @@ body {
   margin-top: 0.5rem;
   color: #1c1c1c;
 }
+
 .crave {
   font-family: 'Fredoka', sans-serif;
   font-weight: 700;
@@ -113,42 +116,47 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
 .hero-subtext {
   margin-top: 2.5rem;
   font-size: 1rem;
   max-width: 700px;
   line-height: 1.6;
   color: #333;
-  text-align: left;
 }
 
 /* Definition section */
 .definition {
   padding: 5rem 2rem 6rem;
+  text-align: center;
   background-color: white;
   color: #1c1c1c;
-  text-align: center;
   max-width: 900px;
   margin: 0 auto;
 }
+
 .definition h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
 }
+
 .brand-name {
   font-weight: bold;
   color: #f97b22;
 }
+
 .phonetic {
   margin-left: 0.5rem;
   font-style: italic;
   color: #888;
 }
+
 .noun {
   margin-left: 0.5rem;
   font-style: italic;
   color: #aaa;
 }
+
 .definition p {
   font-size: 1.1rem;
   line-height: 1.8;
