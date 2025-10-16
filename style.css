@@ -21,6 +21,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   background-color: #FFFBE2;
   overflow: visible;
 }
@@ -32,6 +33,7 @@ body {
   align-items: center;
   padding: 1rem 3rem;
   max-width: 100%;
+  width: 100%;
 }
 
 .logo {
@@ -67,32 +69,34 @@ body {
 
 /* Hero content */
 .hero-content {
-  padding: 4rem 5vw 3rem;
-  text-align: left;
-  max-width: 1400px;
-  margin: 0 auto;
   position: relative;
   z-index: 2;
+  text-align: center;
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
   height: 100%;
-  flex-grow: 1;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
-.hero-line1 {
-  font-size: 3rem;
-  font-weight: bold;
-  color: #1c1c1c;
-  text-align: left;
-}
-
+.hero-line1,
 .hero-line2 {
   font-size: 3rem;
   font-weight: bold;
-  text-align: right;
-  margin-top: 0.5rem;
   color: #1c1c1c;
+  margin: 0.5rem 0;
+}
+
+.hero-line1 {
+  text-align: left;
+  align-self: flex-start;
+}
+
+.hero-line2 {
+  text-align: right;
+  align-self: flex-end;
 }
 
 .crave {
@@ -125,27 +129,26 @@ body {
 
 .sprinkle {
   position: absolute;
-  width: 18px;
-  height: 6px;
+  width: 20px;
+  height: 8px;
   border-radius: 3px;
   background-color: #f97b22;
-  transform: rotate(25deg);
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
-/* Individual sprinkle placements */
-.sprinkle1 { top: 20%; left: 10%; background-color: #f97b22; }
-.sprinkle2 { top: 25%; left: 80%; background-color: #fbd234; }
-.sprinkle3 { top: 10%; left: 50%; background-color: #ff6493; }
-.sprinkle4 { top: 60%; left: 20%; background-color: #8ee3ef; }
-.sprinkle5 { top: 70%; left: 70%; background-color: #85e3c3; }
-.sprinkle6 { top: 40%; left: 30%; background-color: #cb69c1; }
-.sprinkle7 { top: 50%; left: 60%; background-color: #fbd234; }
-.sprinkle8 { top: 15%; left: 35%; background-color: #f97b22; }
-.sprinkle9 { top: 35%; left: 85%; background-color: #8ee3ef; }
-.sprinkle10 { top: 55%; left: 45%; background-color: #85e3c3; }
-.sprinkle11 { top: 30%; left: 25%; background-color: #ff6493; }
-.sprinkle12 { top: 32%; left: 65%; background-color: #cb69c1; }
+/* Individual sprinkle placements and rotations */
+.sprinkle1 { top: 10%; left: 10%; transform: rotate(12deg); background-color: #f97b22; }
+.sprinkle2 { top: 18%; left: 80%; transform: rotate(-25deg); background-color: #fbd234; }
+.sprinkle3 { top: 5%; left: 50%; transform: rotate(45deg); background-color: #ff6493; }
+.sprinkle4 { top: 65%; left: 20%; transform: rotate(-10deg); background-color: #8ee3ef; }
+.sprinkle5 { top: 75%; left: 70%; transform: rotate(30deg); background-color: #85e3c3; }
+.sprinkle6 { top: 35%; left: 30%; transform: rotate(-35deg); background-color: #cb69c1; }
+.sprinkle7 { top: 48%; left: 60%; transform: rotate(18deg); background-color: #fbd234; }
+.sprinkle8 { top: 12%; left: 35%; transform: rotate(-5deg); background-color: #f97b22; }
+.sprinkle9 { top: 33%; left: 85%; transform: rotate(22deg); background-color: #8ee3ef; }
+.sprinkle10 { top: 58%; left: 45%; transform: rotate(-15deg); background-color: #85e3c3; }
+.sprinkle11 { top: 25%; left: 25%; transform: rotate(10deg); background-color: #ff6493; }
+.sprinkle12 { top: 27%; left: 65%; transform: rotate(-20deg); background-color: #cb69c1; }
 
 /* Definition section */
 .definition {
