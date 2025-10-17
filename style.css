@@ -90,6 +90,14 @@ body {
 .sprinkle10 { top: 55%; left: 45%; transform: rotate(-15deg); background: #85e3c3; }
 .sprinkle11 { top: 28%; left: 25%; transform: rotate(5deg); background: #ff6493; }
 .sprinkle12 { top: 30%; left: 65%; transform: rotate(-18deg); background: #cb69c1; }
+.sprinkle13 { top: 5%; left: 10%; transform: rotate(12deg); background: #FF6384; }
+.sprinkle14 { top: 18%; left: 90%; transform: rotate(-20deg); background: #4BC0C0; }
+.sprinkle15 { top: 72%; left: 15%; transform: rotate(30deg); background: #36A2EB; }
+.sprinkle16 { top: 82%; left: 85%; transform: rotate(-10deg); background: #FFCE56; }
+.sprinkle17 { top: 40%; left: 5%; transform: rotate(6deg); background: #cb69c1; }
+.sprinkle18 { top: 45%; left: 95%; transform: rotate(-25deg); background: #FDA53A; }
+.sprinkle19 { top: 10%; left: 20%; transform: rotate(14deg); background: #9966FF; }
+.sprinkle20 { top: 65%; left: 90%; transform: rotate(-15deg); background: #FF9F40; }
 
 /* Hero content centered */
 .hero-content {
