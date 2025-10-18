@@ -177,12 +177,20 @@ body {
   opacity: 1;
 }
 
+/* How we like to snack section */
 .scroll-banner {
   background-color: #FDA53A;
   overflow: hidden;
-  white-space: nowrap;
-  width: 100%;
   padding: 4rem 0;
+}
+
+.scroll-row {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.scroll-row.reverse .scroll-track {
+  animation-direction: reverse;
 }
 
 .scroll-track {
@@ -197,12 +205,12 @@ body {
   font-weight: 900;
   text-transform: uppercase;
   color: #1c1c1c;
-  margin: 0 4vw;
+  margin: 0 2vw;
 }
 
 @keyframes scrollLeft {
   0% {
-    transform: translateX(0);
+    transform: translateX(0%);
   }
   100% {
     transform: translateX(-100%);
