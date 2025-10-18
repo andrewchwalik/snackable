@@ -206,25 +206,28 @@ body {
   white-space: nowrap;
 }
 
-.keyword {
+.word-container {
+  position: relative;
+  display: inline-block;
   font-size: 12vw;
   font-weight: 900;
   text-transform: uppercase;
   color: #1c1c1c;
-  display: inline-block;
-  vertical-align: bottom;
-  margin-left: -20vw; /* Slight pull-in toward adjective */
+  margin: 0 2vw;
+  white-space: nowrap;
 }
 
-.adjective {
+.adjective-overlay {
   font-family: 'Fredoka', sans-serif;
-  font-size: 3em;
+  font-size: 2.5vw;
   font-weight: 700;
   color: white;
   text-transform: lowercase;
-  margin-right: -0.4vw;
-  display: inline-block;
-  vertical-align: baseline;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
 }
 
 @keyframes scrollLeft {
