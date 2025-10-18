@@ -177,6 +177,50 @@ body {
   opacity: 1;
 }
 
+/* How We Like to Snack Section */
+.snack-style {
+  background-color: #FDA53A; /* your brand orange */
+  padding: 6rem 2rem;
+  text-align: center;
+  color: white;
+}
+
+.snack-heading {
+  font-size: 1.2rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 3rem;
+  font-weight: 500;
+}
+
+.snack-pillars {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.pillar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.adjective {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: lowercase;
+  margin-bottom: 0.3rem;
+}
+
+.focus-word {
+  font-size: 2.5rem;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
 /* Definition */
 .definition {
   padding: 5rem 2rem 6rem;
