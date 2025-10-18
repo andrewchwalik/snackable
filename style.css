@@ -219,7 +219,7 @@ body {
   font-weight: 700;
   color: white;
   text-transform: lowercase;
-  margin-right: 0rem;
+  margin-right: -3rem;
   display: inline-block;
   vertical-align: baseline;
 }
