@@ -211,6 +211,9 @@ body {
   font-weight: 900;
   text-transform: uppercase;
   color: #1c1c1c;
+  display: inline-block;
+  vertical-align: top;
+  margin-left: -0.2vw; /* Slight pull-in toward adjective */
 }
 
 .adjective {
