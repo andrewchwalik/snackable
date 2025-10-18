@@ -108,7 +108,7 @@ body {
   justify-content: flex-start;
   text-align: center;
   flex-grow: 1;
-  padding-top: 20rem; /* <-- add padding to control spacing */
+  padding-top: 15rem; /* <-- add padding to control spacing */
 }
 .hero-text-block {
   width: 100%;
