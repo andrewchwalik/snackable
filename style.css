@@ -187,6 +187,7 @@ body {
 .scroll-row {
   overflow: hidden;
   white-space: nowrap;
+  margin: 1rem 0;
 }
 
 .scroll-row.reverse .scroll-track {
@@ -206,8 +207,19 @@ body {
   text-transform: uppercase;
   color: #1c1c1c;
   margin: 0 2vw;
+  white-space: nowrap;
 }
 
+.adjective {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 0.3em;
+  font-weight: 700;
+  text-transform: lowercase;
+  vertical-align: middle;
+  margin-right: 0.5rem;
+  display: inline-block;
+}
+  
 @keyframes scrollLeft {
   0% {
     transform: translateX(0%);
