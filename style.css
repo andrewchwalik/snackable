@@ -212,13 +212,13 @@ body {
 
 .adjective {
   font-family: 'Fredoka', sans-serif;
-  font-size: 0.18em;          /* Much smaller than the large word */
+  font-size: 0.18em;          /* Smaller than the main text */
   font-weight: 700;
   color: white;
   text-transform: lowercase;
-  margin-right: 0.4rem;       /* Tight spacing before the large word */
-  vertical-align: baseline;
+  margin-right: 0.4rem;       /* Tight space before the main word */
   display: inline-block;
+  vertical-align: baseline;
 }
   
 @keyframes scrollLeft {
