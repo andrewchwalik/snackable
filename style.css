@@ -202,25 +202,28 @@ body {
 
 .scroll-track span {
   display: inline-block;
-  font-size: 12vw;
-  font-weight: 900;
-  text-transform: uppercase;
-  color: #1c1c1c;
   margin: 0 2vw;
   white-space: nowrap;
 }
 
+.keyword {
+  font-size: 12vw;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #1c1c1c;
+}
+
 .adjective {
   font-family: 'Fredoka', sans-serif;
-  font-size: 0.18em;          /* Smaller than the main text */
+  font-size: 0.18em;
   font-weight: 700;
   color: white;
   text-transform: lowercase;
-  margin-right: 0.4rem;       /* Tight space before the main word */
+  margin-right: 0.4rem;
   display: inline-block;
   vertical-align: baseline;
 }
-  
+
 @keyframes scrollLeft {
   0% {
     transform: translateX(0%);
@@ -229,7 +232,6 @@ body {
     transform: translateX(-100%);
   }
 }
-
 /* Definition */
 .definition {
   padding: 5rem 2rem 6rem;
