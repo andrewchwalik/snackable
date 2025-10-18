@@ -213,7 +213,7 @@ body {
   color: #1c1c1c;
   display: inline-block;
   vertical-align: bottom;
-  margin-left: -4vw; /* Slight pull-in toward adjective */
+  margin-left: -20vw; /* Slight pull-in toward adjective */
 }
 
 .adjective {
