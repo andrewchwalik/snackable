@@ -177,50 +177,36 @@ body {
   opacity: 1;
 }
 
-/* Bold Snack Section */
-.bold-snack {
-  background-color: #FDA53A; /* Your brand orange */
-  color: #111;
-  font-weight: 900;
-  font-family: 'Helvetica Neue', sans-serif;
-  text-transform: uppercase;
-  font-size: 10vw;
-  padding: 6rem 2rem;
-  line-height: 0.9;
-  position: relative;
+.scroll-banner {
+  background-color: #FDA53A;
   overflow: hidden;
-}
-
-.snack-word {
-  position: relative;
   white-space: nowrap;
-  display: block;
-  width: max-content;
-  margin: 1.5rem auto;
-  text-align: center;
+  width: 100%;
+  padding: 4rem 0;
 }
 
-.snack-adjective {
-  position: absolute;
-  font-family: 'Fredoka', sans-serif;
-  font-weight: 700;
-  font-size: 1.5rem;
-  text-transform: lowercase;
-  color: white;
+.scroll-track {
+  display: inline-block;
+  white-space: nowrap;
+  animation: scrollLeft 30s linear infinite;
 }
 
-/* Adjective placement */
-.large1 .snack-adjective {
-  top: 20%;
-  left: 85%;
+.scroll-track span {
+  display: inline-block;
+  font-size: 12vw;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #1c1c1c;
+  margin: 0 4vw;
 }
-.large2 .snack-adjective {
-  top: 30%;
-  left: 10%;
-}
-.large3 .snack-adjective {
-  top: 60%;
-  left: 5%;
+
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
 /* Definition */
