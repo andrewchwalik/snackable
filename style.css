@@ -263,34 +263,31 @@ body {
   }
 }
 
-/* Definition */
-.definition {
-  padding: 5rem 2rem 6rem;
-  text-align: center;
+/* Portfolio (Snack Drawer) Section */
+.portfolio {
   background-color: #FFFBE2;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.portfolio-heading {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.portfolio-heading .client-heading {
   color: #1c1c1c;
 }
-.definition h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+
+.portfolio-row {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
-.brand-name {
-  font-weight: bold;
-  color: #FDA53A;
-}
-.phonetic {
-  margin-left: 0.5rem;
-  font-style: italic;
-  color: #888;
-}
-.noun {
-  margin-left: 0.5rem;
-  font-style: italic;
-  color: #aaa;
-}
-.definition p {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  max-width: 600px;
-  margin: 1rem auto 0;
+
+.portfolio-row img {
+  height: 500px;
+  object-fit: cover;
+  border-radius: 8px;
 }
