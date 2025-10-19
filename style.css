@@ -177,7 +177,16 @@ body {
   opacity: 1;
 }
 
-/* How we like to snack section */
+/* Our secret recipe section */
+.scroll-heading {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.scroll-heading .client-heading {
+  color: white;
+}
+
 .scroll-banner {
   background-color: #FDA53A;
   overflow: hidden;
