@@ -191,7 +191,7 @@ body {
 }
 
 .scroll-row.reverse .scroll-track {
-  animation-direction: scrollRight 30s linear infinite;
+  animation: scrollRight 30s linear infinite;
 }
 
 .scroll-track {
