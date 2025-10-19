@@ -187,7 +187,7 @@ body {
 .scroll-row {
   overflow: hidden;
   white-space: nowrap;
-  margin: 1rem 0;
+  margin: 0.2rem 0;
 }
 
 .scroll-row.reverse .scroll-track {
