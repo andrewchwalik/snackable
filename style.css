@@ -191,13 +191,13 @@ body {
 }
 
 .scroll-row.reverse .scroll-track {
-  animation: scrollRight 40s linear infinite;
+  animation: scrollRight 50s linear infinite;
 }
 
 .scroll-track {
   display: inline-block;
   white-space: nowrap;
-  animation: scrollLeft 40s linear infinite;
+  animation: scrollLeft 50s linear infinite;
 }
 
 .scroll-track span {
