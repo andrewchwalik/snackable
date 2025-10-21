@@ -282,14 +282,17 @@ body {
 .portfolio-row {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 2rem;
-  flex-wrap: wrap;
+  flex-wrap: nowrap; /* prevents wrapping */
+  overflow-x: auto; /* allows horizontal scroll on small screens */
 }
 
 .portfolio-row img {
   height: 500px;
   object-fit: cover;
   border-radius: 8px;
+  flex-shrink: 0; /* keeps images from shrinking too small */
 }
 
 .donut-footer {
