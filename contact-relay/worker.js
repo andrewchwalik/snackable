@@ -63,11 +63,11 @@ export default {
     }
 
     const name = sanitizeLine(payload.name);
-    const email = sanitizeLine(payload.email);
     const company = sanitizeLine(payload.company);
-    const details = sanitizeLine(payload.details);
+    const website = sanitizeLine(payload.website);
+    const phone = sanitizeLine(payload.phone);
 
-    if (!name || !email || !details) {
+    if (!name || !company || !phone) {
       return new Response(JSON.stringify({ ok: false, error: "Missing required fields" }), {
         status: 400,
         headers: { "Content-Type": "application/json", ...corsHeaders }
@@ -78,9 +78,9 @@ export default {
       content:
         "New Twillful contact form submission\n\n" +
         `Name: ${name}\n` +
-        `Email: ${email}\n` +
-        `Brand/Company: ${company || "N/A"}\n` +
-        `Project Details: ${details}`,
+        `Business Name: ${company}\n` +
+        `Current Website: ${website || "N/A"}\n` +
+        `Phone Number: ${phone}`,
       allowed_mentions: { parse: [] }
     };
 
