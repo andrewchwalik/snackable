@@ -336,27 +336,27 @@
 
     .hero-card--lead {
       z-index: 6;
-      animation: lead-card-rise 0.95s cubic-bezier(0.2, 0.95, 0.22, 1) forwards 0.18s;
+      animation: lead-card-rise 1.18s cubic-bezier(0.16, 0.84, 0.24, 1) forwards 0.14s;
     }
 
     .hero-card--a {
       z-index: 2;
-      animation: fan-card-left-a 1.02s cubic-bezier(0.19, 0.9, 0.22, 1) forwards 1.22s;
+      animation: fan-card-left-a 1.26s cubic-bezier(0.16, 0.84, 0.24, 1) forwards 1.14s;
     }
 
     .hero-card--b {
       z-index: 3;
-      animation: fan-card-left-b 1.04s cubic-bezier(0.19, 0.9, 0.22, 1) forwards 1.28s;
+      animation: fan-card-left-b 1.28s cubic-bezier(0.16, 0.84, 0.24, 1) forwards 1.2s;
     }
 
     .hero-card--c {
       z-index: 4;
-      animation: fan-card-left-c 1.06s cubic-bezier(0.19, 0.9, 0.22, 1) forwards 1.34s;
+      animation: fan-card-left-c 1.3s cubic-bezier(0.16, 0.84, 0.24, 1) forwards 1.26s;
     }
 
     .hero-card--d {
       z-index: 5;
-      animation: fan-card-left-d 1.08s cubic-bezier(0.19, 0.9, 0.22, 1) forwards 1.4s;
+      animation: fan-card-left-d 1.32s cubic-bezier(0.16, 0.84, 0.24, 1) forwards 1.32s;
     }
 
     .hero-card-art {
@@ -755,11 +755,15 @@
     @keyframes lead-card-rise {
       0% {
         opacity: 0;
-        transform: translate(-50%, 260px) scale(0.86) rotate(6deg);
+        transform: translate(-50%, 280px) scale(0.9) rotate(7deg);
       }
-      62% {
+      52% {
         opacity: 1;
-        transform: translate(112px, -18px) scale(1.08) rotate(7deg);
+        transform: translate(98px, -10px) scale(1.04) rotate(6.5deg);
+      }
+      76% {
+        opacity: 1;
+        transform: translate(120px, -2px) scale(1.015) rotate(6.2deg);
       }
       100% {
         opacity: 1;
@@ -770,15 +774,15 @@
     @keyframes fan-card-left-a {
       0% {
         opacity: 0;
-        transform: translate(112px, -6px) scale(0.96) rotate(6deg);
+        transform: translate(120px, -2px) scale(0.98) rotate(6deg);
       }
-      18% {
+      22% {
         opacity: 1;
-        transform: translate(104px, -10px) scale(0.98) rotate(5deg);
+        transform: translate(94px, 0) scale(0.995) rotate(3deg);
       }
-      54% {
+      62% {
         opacity: 1;
-        transform: translate(-210px, 12px) scale(1.01) rotate(-11deg);
+        transform: translate(-184px, 16px) scale(1.005) rotate(-8deg);
       }
       100% {
         opacity: 1;
@@ -789,15 +793,15 @@
     @keyframes fan-card-left-b {
       0% {
         opacity: 0;
-        transform: translate(112px, -6px) scale(0.96) rotate(6deg);
+        transform: translate(118px, -1px) scale(0.98) rotate(6deg);
       }
-      18% {
+      22% {
         opacity: 1;
-        transform: translate(100px, -10px) scale(0.98) rotate(5deg);
+        transform: translate(92px, 0) scale(0.995) rotate(3deg);
       }
-      56% {
+      64% {
         opacity: 1;
-        transform: translate(-108px, 6px) scale(1.01) rotate(-5deg);
+        transform: translate(-92px, 10px) scale(1.005) rotate(-3deg);
       }
       100% {
         opacity: 1;
@@ -808,15 +812,15 @@
     @keyframes fan-card-left-c {
       0% {
         opacity: 0;
-        transform: translate(112px, -6px) scale(0.96) rotate(6deg);
+        transform: translate(116px, 0) scale(0.98) rotate(6deg);
       }
-      18% {
+      22% {
         opacity: 1;
-        transform: translate(96px, -10px) scale(0.98) rotate(5deg);
+        transform: translate(90px, 0) scale(0.995) rotate(3deg);
       }
-      58% {
+      66% {
         opacity: 1;
-        transform: translate(-2px, 2px) scale(1.01) rotate(-1deg);
+        transform: translate(10px, 6px) scale(1.005) rotate(0deg);
       }
       100% {
         opacity: 1;
@@ -827,15 +831,15 @@
     @keyframes fan-card-left-d {
       0% {
         opacity: 0;
-        transform: translate(112px, -6px) scale(0.96) rotate(6deg);
+        transform: translate(114px, 0) scale(0.98) rotate(6deg);
       }
-      18% {
+      22% {
         opacity: 1;
-        transform: translate(92px, -10px) scale(0.98) rotate(5deg);
+        transform: translate(88px, 0) scale(0.995) rotate(3deg);
       }
-      60% {
+      68% {
         opacity: 1;
-        transform: translate(92px, 5px) scale(1.01) rotate(2deg);
+        transform: translate(98px, 8px) scale(1.005) rotate(2.5deg);
       }
       100% {
         opacity: 1;
