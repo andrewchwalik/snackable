@@ -659,6 +659,11 @@
       animation: gallery-scroll-left 46s linear infinite;
     }
 
+    .gallery-track:hover,
+    .gallery-track:focus-within {
+      animation-play-state: paused;
+    }
+
     .gallery-track--reverse {
       animation-name: gallery-scroll-right;
       animation-duration: 50s;
@@ -678,6 +683,25 @@
       transform: translateY(calc(var(--wave-offset, 0) * 1px));
       animation: gallery-wave 6.8s ease-in-out infinite;
       animation-delay: var(--wave-delay, 0s);
+      transition: transform 0.24s cubic-bezier(0.22, 1, 0.36, 1);
+      cursor: default;
+      text-decoration: none;
+    }
+
+    .gallery-track:hover .gallery-mini-card,
+    .gallery-track:focus-within .gallery-mini-card {
+      animation-play-state: paused;
+    }
+
+    .gallery-mini-card--linked {
+      cursor: pointer;
+    }
+
+    .gallery-mini-card:hover,
+    .gallery-mini-card:focus-visible {
+      transform: translateY(calc(var(--wave-offset, 0) * 1px - 8px)) scale(1.08);
+      z-index: 4;
+      outline: none;
     }
 
     .gallery-mini-card::before {
@@ -749,6 +773,49 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+    }
+
+    .gallery-hover-pill {
+      position: absolute;
+      left: 50%;
+      top: -46px;
+      transform: translate(-50%, 12px) scale(0.96);
+      display: inline-flex;
+      align-items: center;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: rgba(34, 49, 36, 0.96);
+      border: 1px solid rgba(149, 180, 117, 0.34);
+      box-shadow: 0 18px 38px rgba(20, 26, 18, 0.16);
+      color: #f7fbf2;
+      font-size: 13px;
+      font-weight: 700;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.22s ease, transform 0.22s ease;
+      z-index: 8;
+    }
+
+    .gallery-hover-pill::after {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      left: 50%;
+      width: 14px;
+      height: 14px;
+      margin-left: -7px;
+      background: rgba(34, 49, 36, 0.96);
+      border-right: 1px solid rgba(149, 180, 117, 0.28);
+      border-bottom: 1px solid rgba(149, 180, 117, 0.28);
+      transform: rotate(45deg);
+      border-radius: 3px;
+    }
+
+    .gallery-mini-card:hover .gallery-hover-pill,
+    .gallery-mini-card:focus-visible .gallery-hover-pill {
+      opacity: 1;
+      transform: translate(-50%, 0) scale(1);
     }
 
     .contact-chat {
@@ -1173,14 +1240,14 @@
     ];
 
     const galleryCardsTop = [
-      { label: "Bluebird", background: "#29486e", image: "assets/client-cards/bluebird.jpg", offset: 8, delay: "0s" },
-      { label: "Lakeside", background: "#9c6f4e", image: "assets/client-cards/lakeside-laundromat.jpg", offset: 15, delay: "0.4s" },
+      { label: "Bluebird", company: "Bluebird", url: "https://bluebird.ooo/", background: "#29486e", image: "assets/client-cards/bluebird.jpg", offset: 8, delay: "0s" },
+      { label: "Lakeside", company: "Lakeside Laundromat", background: "#9c6f4e", image: "assets/client-cards/lakeside-laundromat.jpg", offset: 15, delay: "0.4s" },
       { label: "Launch", background: "linear-gradient(160deg, #5f8f4f 0%, #88ba73 46%, #e6f3dc 100%)", offset: 5, delay: "0.8s" },
-      { label: "Caption Lab", background: "#574070", image: "assets/client-cards/the-caption-lab.jpg", offset: 14, delay: "1.2s" },
-      { label: "Wash Co", background: "#8e6048", image: "assets/client-cards/the-wash-company.jpg", offset: 7, delay: "1.6s" },
+      { label: "Caption Lab", company: "The Caption Lab", url: "https://www.thecaptionlab.com/", background: "#574070", image: "assets/client-cards/the-caption-lab.jpg", offset: 14, delay: "1.2s" },
+      { label: "Wash Co", company: "The Wash Company", background: "#8e6048", image: "assets/client-cards/the-wash-company.jpg", offset: 7, delay: "1.6s" },
       { label: "UX", background: "linear-gradient(160deg, #c8ced8 0%, #e4d7d1 46%, #f7f4ef 100%)", offset: 13, delay: "2s" },
       { label: "Identity", background: "linear-gradient(160deg, #e28b8b 0%, #d43e3e 42%, #76b6e5 100%)", offset: 4, delay: "2.4s" },
-      { label: "Firelands", background: "#334164", image: "assets/client-cards/firelands-united.jpg", offset: 11, delay: "2.8s" },
+      { label: "Firelands", company: "Firelands United", url: "https://firelandsunited.com/", background: "#334164", image: "assets/client-cards/firelands-united.jpg", offset: 11, delay: "2.8s" },
       { label: "Website", background: "linear-gradient(160deg, #fad046 0%, #f9f68a 38%, #ffb03b 100%)", offset: 6, delay: "3.2s" },
       { label: "Studio", background: "linear-gradient(160deg, #d96932 0%, #f48c5a 42%, #6a271c 100%)", offset: 12, delay: "3.6s" }
     ];
@@ -1188,13 +1255,13 @@
     const galleryCardsBottom = [
       { label: "Content", background: "linear-gradient(160deg, #58a8aa 0%, #9fe3d9 44%, #f5f0d4 100%)", offset: 11, delay: "0.2s" },
       { label: "Campaign", background: "linear-gradient(160deg, #f47e53 0%, #ffb06e 44%, #fff0d7 100%)", offset: 5, delay: "0.6s" },
-      { label: "Bluebird", background: "#29486e", image: "assets/client-cards/bluebird.jpg", offset: 12, delay: "1s" },
+      { label: "Bluebird", company: "Bluebird", url: "https://bluebird.ooo/", background: "#29486e", image: "assets/client-cards/bluebird.jpg", offset: 12, delay: "1s" },
       { label: "Social", background: "linear-gradient(160deg, #6aafe5 0%, #a6d6f6 42%, #f4d576 100%)", offset: 7, delay: "1.4s" },
-      { label: "Lakeside", background: "#9c6f4e", image: "assets/client-cards/lakeside-laundromat.jpg", offset: 14, delay: "1.8s" },
-      { label: "Caption Lab", background: "#574070", image: "assets/client-cards/the-caption-lab.jpg", offset: 6, delay: "2.2s" },
+      { label: "Lakeside", company: "Lakeside Laundromat", background: "#9c6f4e", image: "assets/client-cards/lakeside-laundromat.jpg", offset: 14, delay: "1.8s" },
+      { label: "Caption Lab", company: "The Caption Lab", url: "https://www.thecaptionlab.com/", background: "#574070", image: "assets/client-cards/the-caption-lab.jpg", offset: 6, delay: "2.2s" },
       { label: "Digital", background: "linear-gradient(160deg, #05050a 0%, #101628 42%, #5464ed 100%)", offset: 10, delay: "2.6s" },
-      { label: "Wash Co", background: "#8e6048", image: "assets/client-cards/the-wash-company.jpg", offset: 4, delay: "3s" },
-      { label: "Firelands", background: "#334164", image: "assets/client-cards/firelands-united.jpg", offset: 13, delay: "3.4s" },
+      { label: "Wash Co", company: "The Wash Company", background: "#8e6048", image: "assets/client-cards/the-wash-company.jpg", offset: 4, delay: "3s" },
+      { label: "Firelands", company: "Firelands United", url: "https://firelandsunited.com/", background: "#334164", image: "assets/client-cards/firelands-united.jpg", offset: 13, delay: "3.4s" },
       { label: "Studio", background: "linear-gradient(160deg, #5d2fa0 0%, #8a55d6 42%, #f2b3ff 100%)", offset: 8, delay: "3.8s" }
     ];
 
@@ -1515,28 +1582,34 @@
               <div className="px-0 py-6 sm:py-8 md:py-10">
                 <div className="gallery-wave py-4">
                   <div className="gallery-track">
-                    {[...galleryCardsTop, ...galleryCardsTop, ...galleryCardsTop].map((card, index) => (
-                      <button
-                        key={`top-${card.label}-${index}`}
-                        type="button"
-                        className="gallery-mini-card"
-                        style={{
-                          background: card.background,
-                          "--wave-offset": card.offset,
-                          "--wave-delay": card.delay
-                        }}
-                      >
-                        {card.image && <img src={card.image} alt={card.label} className="gallery-mini-card-image" />}
-                        {!card.image && (
-                          <>
-                            <span className="gallery-mini-card-grid" />
-                            <span className="gallery-mini-card-line" />
-                            <span className="gallery-mini-card-circle" />
-                            <span className="gallery-mini-card-label">{card.label}</span>
-                          </>
-                        )}
-                      </button>
-                    ))}
+                    {[...galleryCardsTop, ...galleryCardsTop, ...galleryCardsTop].map((card, index) => {
+                      const CardTag = card.url ? "a" : "button";
+                      return (
+                        <CardTag
+                          key={`top-${card.label}-${index}`}
+                          {...(card.url
+                            ? { href: card.url, target: "_blank", rel: "noreferrer noopener" }
+                            : { type: "button" })}
+                          className={`gallery-mini-card ${card.url ? "gallery-mini-card--linked" : ""}`}
+                          style={{
+                            background: card.background,
+                            "--wave-offset": card.offset,
+                            "--wave-delay": card.delay
+                          }}
+                        >
+                          <span className="gallery-hover-pill">{card.company || card.label}</span>
+                          {card.image && <img src={card.image} alt={card.company || card.label} className="gallery-mini-card-image" />}
+                          {!card.image && (
+                            <>
+                              <span className="gallery-mini-card-grid" />
+                              <span className="gallery-mini-card-line" />
+                              <span className="gallery-mini-card-circle" />
+                              <span className="gallery-mini-card-label">{card.label}</span>
+                            </>
+                          )}
+                        </CardTag>
+                      );
+                    })}
                   </div>
                 </div>
 
@@ -1554,28 +1627,34 @@
 
                 <div className="gallery-wave py-4">
                   <div className="gallery-track gallery-track--reverse">
-                    {[...galleryCardsBottom, ...galleryCardsBottom, ...galleryCardsBottom].map((card, index) => (
-                      <button
-                        key={`bottom-${card.label}-${index}`}
-                        type="button"
-                        className="gallery-mini-card"
-                        style={{
-                          background: card.background,
-                          "--wave-offset": card.offset,
-                          "--wave-delay": card.delay
-                        }}
-                      >
-                        {card.image && <img src={card.image} alt={card.label} className="gallery-mini-card-image" />}
-                        {!card.image && (
-                          <>
-                            <span className="gallery-mini-card-grid" />
-                            <span className="gallery-mini-card-line" />
-                            <span className="gallery-mini-card-circle" />
-                            <span className="gallery-mini-card-label">{card.label}</span>
-                          </>
-                        )}
-                      </button>
-                    ))}
+                    {[...galleryCardsBottom, ...galleryCardsBottom, ...galleryCardsBottom].map((card, index) => {
+                      const CardTag = card.url ? "a" : "button";
+                      return (
+                        <CardTag
+                          key={`bottom-${card.label}-${index}`}
+                          {...(card.url
+                            ? { href: card.url, target: "_blank", rel: "noreferrer noopener" }
+                            : { type: "button" })}
+                          className={`gallery-mini-card ${card.url ? "gallery-mini-card--linked" : ""}`}
+                          style={{
+                            background: card.background,
+                            "--wave-offset": card.offset,
+                            "--wave-delay": card.delay
+                          }}
+                        >
+                          <span className="gallery-hover-pill">{card.company || card.label}</span>
+                          {card.image && <img src={card.image} alt={card.company || card.label} className="gallery-mini-card-image" />}
+                          {!card.image && (
+                            <>
+                              <span className="gallery-mini-card-grid" />
+                              <span className="gallery-mini-card-line" />
+                              <span className="gallery-mini-card-circle" />
+                              <span className="gallery-mini-card-label">{card.label}</span>
+                            </>
+                          )}
+                        </CardTag>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
