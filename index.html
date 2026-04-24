@@ -702,6 +702,7 @@
       flex-direction: column;
       gap: 0.7rem;
       max-width: 22rem;
+      min-height: 15rem;
     }
 
     .contact-chat-first,
@@ -1305,6 +1306,7 @@
       const CONTACT_RELAY_URL = "https://twillful-contact-relay.chwalik.workers.dev/contact";
       const trustRef = React.useRef(null);
       const contactSectionRef = React.useRef(null);
+      const contactChatIntentRef = React.useRef(false);
 
       React.useEffect(() => {
         const node = trustRef.current;
@@ -1328,11 +1330,20 @@
         const node = contactSectionRef.current;
         if (!node || contactChatStarted) return;
 
-        let hasUserScrolledDown = false;
         let lastScrollY = window.scrollY;
 
+        function markScrollIntent() {
+          contactChatIntentRef.current = true;
+        }
+
+        function handleKeydown(event) {
+          if (["ArrowDown", "PageDown", " ", "Spacebar"].includes(event.key)) {
+            contactChatIntentRef.current = true;
+          }
+        }
+
         function checkContactVisibility() {
-          if (!hasUserScrolledDown) return;
+          if (!contactChatIntentRef.current) return;
 
           const rect = node.getBoundingClientRect();
           const sectionTopReached = rect.top <= window.innerHeight * 0.68;
@@ -1348,16 +1359,22 @@
           const currentScrollY = window.scrollY;
 
           if (currentScrollY > lastScrollY + 8) {
-            hasUserScrolledDown = true;
+            contactChatIntentRef.current = true;
           }
 
           lastScrollY = currentScrollY;
           checkContactVisibility();
         }
 
+        window.addEventListener("wheel", markScrollIntent, { passive: true });
+        window.addEventListener("touchmove", markScrollIntent, { passive: true });
+        window.addEventListener("keydown", handleKeydown);
         window.addEventListener("scroll", handleScroll, { passive: true });
 
         return () => {
+          window.removeEventListener("wheel", markScrollIntent);
+          window.removeEventListener("touchmove", markScrollIntent);
+          window.removeEventListener("keydown", handleKeydown);
           window.removeEventListener("scroll", handleScroll);
         };
       }, [contactChatStarted]);
@@ -1527,33 +1544,37 @@
                     </div>
 
                     <div className={`contact-chat ${contactChatStarted ? "is-started" : ""}`} aria-hidden="true">
-                      <div className="contact-chat-first">
-                        <div className="contact-bubble contact-bubble--typing-first">
-                          <span className="contact-bubble-dots">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                          </span>
-                        </div>
+                      {contactChatStarted && (
+                        <>
+                          <div className="contact-chat-first">
+                            <div className="contact-bubble contact-bubble--typing-first">
+                              <span className="contact-bubble-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                              </span>
+                            </div>
 
-                        <div className="contact-bubble contact-bubble--incoming">
-                          Hey. We have an old website that needs a facelift. Can you guys help us?
-                        </div>
-                      </div>
+                            <div className="contact-bubble contact-bubble--incoming">
+                              Hey. We have an old website that needs a facelift. Can you guys help us?
+                            </div>
+                          </div>
 
-                      <div className="contact-chat-response">
-                        <div className="contact-bubble contact-bubble--typing">
-                          <span className="contact-bubble-dots">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                          </span>
-                        </div>
+                          <div className="contact-chat-response">
+                            <div className="contact-bubble contact-bubble--typing">
+                              <span className="contact-bubble-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                              </span>
+                            </div>
 
-                        <div className="contact-bubble contact-bubble--reply">
-                          Thanks for reaching out! We can absolutely help with that. We'll review your current site and put together a little proposal for you.
-                        </div>
-                      </div>
+                            <div className="contact-bubble contact-bubble--reply">
+                              Thanks for reaching out! We can absolutely help with that. We'll review your current site and put together a little proposal for you.
+                            </div>
+                          </div>
+                        </>
+                      )}
                     </div>
                   </div>
                 </div>
