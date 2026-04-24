@@ -718,6 +718,7 @@
     .contact-chat-response {
       align-self: flex-end;
       min-height: 8.75rem;
+      margin-top: 1rem;
     }
 
     .contact-bubble {
@@ -762,7 +763,7 @@
       color: #31412d;
       padding: 0.8rem 1rem 0.75rem;
       animation: chat-typing-appear 3.7s ease-in-out forwards;
-      animation-delay: 2.15s;
+      animation-delay: 2.45s;
       position: absolute;
       right: 0;
       top: 0;
@@ -773,7 +774,7 @@
       background: rgba(149, 180, 117, 0.18);
       color: #24341e;
       animation: chat-reply 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-      animation-delay: 5.8s;
+      animation-delay: 6.1s;
       position: absolute;
       right: 0;
       top: 0;
@@ -1327,12 +1328,20 @@
         const node = contactSectionRef.current;
         if (!node || contactChatStarted) return;
 
+        const initialScrollY = window.scrollY;
+        let hasScrolledDown = false;
+
         function maybeStartChat() {
-          if (window.scrollY < 250) return;
+          const scrolledAmount = window.scrollY - initialScrollY;
+          if (scrolledAmount > 40) {
+            hasScrolledDown = true;
+          }
+
+          if (!hasScrolledDown) return;
 
           const rect = node.getBoundingClientRect();
-          const sectionTopReached = rect.top <= window.innerHeight * 0.72;
-          const sectionStillVisible = rect.bottom >= window.innerHeight * 0.2;
+          const sectionTopReached = rect.top <= window.innerHeight * 0.68;
+          const sectionStillVisible = rect.bottom >= window.innerHeight * 0.35;
 
           if (sectionTopReached && sectionStillVisible) {
             setContactChatStarted(true);
