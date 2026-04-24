@@ -660,6 +660,10 @@
       animation: gallery-scroll-left 46s linear infinite;
     }
 
+    .gallery-track--offset {
+      animation-delay: -15.5s;
+    }
+
     .gallery-track:hover,
     .gallery-track:focus-within {
       animation-play-state: paused;
@@ -1607,7 +1611,7 @@
             <div className="mx-auto max-w-7xl">
               <div className="px-0 py-6 sm:py-8 md:py-10">
                 <div className="gallery-wave py-4">
-                  <div className="gallery-track">
+                  <div className="gallery-track gallery-track--offset">
                     {[...galleryCardsTop, ...galleryCardsTop, ...galleryCardsTop].map((card, index) => {
                       const CardTag = card.url ? "a" : "button";
                       return (
