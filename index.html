@@ -715,6 +715,7 @@
       opacity: 0;
       transform: translateY(12px) scale(0.98);
       animation-fill-mode: forwards;
+      animation-play-state: paused;
     }
 
     .contact-bubble--incoming {
@@ -722,16 +723,17 @@
       border-bottom-left-radius: 0.45rem;
       background: #f2f5ef;
       color: #31412d;
-      animation: chat-first 9s ease-in-out infinite;
+      animation: chat-first 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
     }
 
     .contact-bubble--typing {
-      align-self: flex-start;
-      border-bottom-left-radius: 0.45rem;
+      align-self: flex-end;
+      border-bottom-right-radius: 0.45rem;
       background: #f2f5ef;
       color: #31412d;
       padding: 0.8rem 1rem 0.75rem;
-      animation: chat-typing-appear 9s ease-in-out infinite;
+      animation: chat-typing-appear 3.7s ease-in-out forwards;
+      animation-delay: 0.6s;
     }
 
     .contact-bubble--reply {
@@ -739,7 +741,12 @@
       border-bottom-right-radius: 0.45rem;
       background: rgba(149, 180, 117, 0.18);
       color: #24341e;
-      animation: chat-reply 9s ease-in-out infinite;
+      animation: chat-reply 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      animation-delay: 4.25s;
+    }
+
+    .contact-chat.is-started .contact-bubble {
+      animation-play-state: running;
     }
 
     .contact-bubble-dots {
@@ -767,30 +774,26 @@
     }
 
     @keyframes chat-first {
-      0%,
-      8% {
+      from {
         opacity: 0;
         transform: translateY(12px) scale(0.98);
       }
-      15%,
-      100% {
+      to {
         opacity: 1;
         transform: translateY(0) scale(1);
       }
     }
 
     @keyframes chat-typing-appear {
-      0%,
-      18% {
+      0% {
         opacity: 0;
         transform: translateY(12px) scale(0.98);
       }
-      25%,
-      57% {
+      8%,
+      84% {
         opacity: 1;
         transform: translateY(0) scale(1);
       }
-      64%,
       100% {
         opacity: 0;
         transform: translateY(6px) scale(0.985);
@@ -798,13 +801,11 @@
     }
 
     @keyframes chat-reply {
-      0%,
-      57% {
+      from {
         opacity: 0;
         transform: translateY(12px) scale(0.98);
       }
-      66%,
-      100% {
+      to {
         opacity: 1;
         transform: translateY(0) scale(1);
       }
@@ -1264,8 +1265,10 @@
 
     function TwillfulSite() {
       const [formStatus, setFormStatus] = React.useState({ state: "idle", message: "" });
+      const [contactChatStarted, setContactChatStarted] = React.useState(false);
       const CONTACT_RELAY_URL = "https://twillful-contact-relay.chwalik.workers.dev/contact";
       const trustRef = React.useRef(null);
+      const contactChatRef = React.useRef(null);
 
       React.useEffect(() => {
         const node = trustRef.current;
@@ -1284,6 +1287,24 @@
         observer.observe(node);
         return () => observer.disconnect();
       }, []);
+
+      React.useEffect(() => {
+        const node = contactChatRef.current;
+        if (!node || contactChatStarted) return;
+
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            if (entry.isIntersecting) {
+              setContactChatStarted(true);
+              observer.disconnect();
+            }
+          },
+          { threshold: 0.32 }
+        );
+
+        observer.observe(node);
+        return () => observer.disconnect();
+      }, [contactChatStarted]);
 
       async function handleContactSubmit(event) {
         event.preventDefault();
@@ -1449,7 +1470,11 @@
                       Submit your information in this form. One of our team members will drop you a text to see if we're the right web design agency for you.
                     </div>
 
-                    <div className="contact-chat" aria-hidden="true">
+                    <div
+                      ref={contactChatRef}
+                      className={`contact-chat ${contactChatStarted ? "is-started" : ""}`}
+                      aria-hidden="true"
+                    >
                       <div className="contact-bubble contact-bubble--incoming">
                         Hey. We have an old website that needs a facelift. Can you guys help us?
                       </div>
