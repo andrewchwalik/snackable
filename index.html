@@ -370,6 +370,9 @@
       background: transparent !important;
       opacity: 0;
       transform-origin: center center;
+      transition:
+        translate 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+        scale 0.28s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     .hero-card::before {
@@ -410,8 +413,6 @@
       inset: 0;
       border-radius: inherit;
       overflow: hidden;
-      transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
-      will-change: transform;
     }
 
     .hero-card-image {
@@ -502,9 +503,10 @@
       transform: translate(-50%, 0) scale(1);
     }
 
-    .hero-card:hover .hero-card-art,
-    .hero-card:focus-within .hero-card-art {
-      transform: translateY(-10px) scale(1.028);
+    .hero-card:hover,
+    .hero-card:focus-within {
+      translate: 0 -10px;
+      scale: 1.028;
     }
 
     .trust-section {
@@ -674,7 +676,7 @@
       width: 4.7rem;
       height: 4.7rem;
       flex: 0 0 4.7rem;
-      overflow: hidden;
+      overflow: visible;
       border: 0;
       border-radius: 1.15rem;
       box-shadow: none;
@@ -683,7 +685,9 @@
       transform: translateY(calc(var(--wave-offset, 0) * 1px));
       animation: gallery-wave 6.8s ease-in-out infinite;
       animation-delay: var(--wave-delay, 0s);
-      transition: transform 0.24s cubic-bezier(0.22, 1, 0.36, 1);
+      transition:
+        translate 0.24s cubic-bezier(0.22, 1, 0.36, 1),
+        scale 0.24s cubic-bezier(0.22, 1, 0.36, 1);
       cursor: default;
       text-decoration: none;
     }
@@ -699,9 +703,17 @@
 
     .gallery-mini-card:hover,
     .gallery-mini-card:focus-visible {
-      transform: translateY(calc(var(--wave-offset, 0) * 1px - 8px)) scale(1.08);
+      translate: 0 -8px;
+      scale: 1.08;
       z-index: 4;
       outline: none;
+    }
+
+    .gallery-mini-card-art {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      border-radius: inherit;
     }
 
     .gallery-mini-card::before {
@@ -1598,15 +1610,17 @@
                           }}
                         >
                           <span className="gallery-hover-pill">{card.company || card.label}</span>
-                          {card.image && <img src={card.image} alt={card.company || card.label} className="gallery-mini-card-image" />}
-                          {!card.image && (
-                            <>
-                              <span className="gallery-mini-card-grid" />
-                              <span className="gallery-mini-card-line" />
-                              <span className="gallery-mini-card-circle" />
-                              <span className="gallery-mini-card-label">{card.label}</span>
-                            </>
-                          )}
+                          <span className="gallery-mini-card-art">
+                            {card.image && <img src={card.image} alt={card.company || card.label} className="gallery-mini-card-image" />}
+                            {!card.image && (
+                              <>
+                                <span className="gallery-mini-card-grid" />
+                                <span className="gallery-mini-card-line" />
+                                <span className="gallery-mini-card-circle" />
+                                <span className="gallery-mini-card-label">{card.label}</span>
+                              </>
+                            )}
+                          </span>
                         </CardTag>
                       );
                     })}
@@ -1643,15 +1657,17 @@
                           }}
                         >
                           <span className="gallery-hover-pill">{card.company || card.label}</span>
-                          {card.image && <img src={card.image} alt={card.company || card.label} className="gallery-mini-card-image" />}
-                          {!card.image && (
-                            <>
-                              <span className="gallery-mini-card-grid" />
-                              <span className="gallery-mini-card-line" />
-                              <span className="gallery-mini-card-circle" />
-                              <span className="gallery-mini-card-label">{card.label}</span>
-                            </>
-                          )}
+                          <span className="gallery-mini-card-art">
+                            {card.image && <img src={card.image} alt={card.company || card.label} className="gallery-mini-card-image" />}
+                            {!card.image && (
+                              <>
+                                <span className="gallery-mini-card-grid" />
+                                <span className="gallery-mini-card-line" />
+                                <span className="gallery-mini-card-circle" />
+                                <span className="gallery-mini-card-label">{card.label}</span>
+                              </>
+                            )}
+                          </span>
                         </CardTag>
                       );
                     })}
