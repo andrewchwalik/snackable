@@ -1328,34 +1328,37 @@
         const node = contactSectionRef.current;
         if (!node || contactChatStarted) return;
 
-        const initialScrollY = window.scrollY;
-        let hasScrolledDown = false;
+        let hasUserScrolledDown = false;
+        let lastScrollY = window.scrollY;
 
-        function maybeStartChat() {
-          const scrolledAmount = window.scrollY - initialScrollY;
-          if (scrolledAmount > 40) {
-            hasScrolledDown = true;
-          }
-
-          if (!hasScrolledDown) return;
+        function checkContactVisibility() {
+          if (!hasUserScrolledDown) return;
 
           const rect = node.getBoundingClientRect();
           const sectionTopReached = rect.top <= window.innerHeight * 0.68;
-          const sectionStillVisible = rect.bottom >= window.innerHeight * 0.35;
+          const sectionStillVisible = rect.bottom >= window.innerHeight * 0.28;
 
           if (sectionTopReached && sectionStillVisible) {
             setContactChatStarted(true);
-            window.removeEventListener("scroll", maybeStartChat);
-            window.removeEventListener("resize", maybeStartChat);
+            window.removeEventListener("scroll", handleScroll);
           }
         }
 
-        window.addEventListener("scroll", maybeStartChat, { passive: true });
-        window.addEventListener("resize", maybeStartChat);
+        function handleScroll() {
+          const currentScrollY = window.scrollY;
+
+          if (currentScrollY > lastScrollY + 8) {
+            hasUserScrolledDown = true;
+          }
+
+          lastScrollY = currentScrollY;
+          checkContactVisibility();
+        }
+
+        window.addEventListener("scroll", handleScroll, { passive: true });
 
         return () => {
-          window.removeEventListener("scroll", maybeStartChat);
-          window.removeEventListener("resize", maybeStartChat);
+          window.removeEventListener("scroll", handleScroll);
         };
       }, [contactChatStarted]);
 
