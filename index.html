@@ -385,27 +385,22 @@
 
     .hero-card--lead {
       z-index: 6;
-      animation: lead-card-rise 1.42s cubic-bezier(0.22, 1, 0.36, 1) forwards 0.14s;
     }
 
     .hero-card--a {
       z-index: 2;
-      animation: fan-card-left-a 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards 1.14s;
     }
 
     .hero-card--b {
       z-index: 3;
-      animation: fan-card-left-b 1.42s cubic-bezier(0.22, 1, 0.36, 1) forwards 1.2s;
     }
 
     .hero-card--c {
       z-index: 4;
-      animation: fan-card-left-c 1.44s cubic-bezier(0.22, 1, 0.36, 1) forwards 1.26s;
     }
 
     .hero-card--d {
       z-index: 5;
-      animation: fan-card-left-d 1.46s cubic-bezier(0.22, 1, 0.36, 1) forwards 1.32s;
     }
 
     .hero-card-art {
@@ -1066,121 +1061,6 @@
       }
     }
 
-    @keyframes lead-card-rise {
-      0% {
-        opacity: 0;
-        transform: translate(-50%, 280px) scale(0.9) rotate(7deg);
-      }
-      18% {
-        opacity: 0.45;
-        transform: translate(-10px, 168px) scale(0.94) rotate(6.9deg);
-      }
-      46% {
-        opacity: 1;
-        transform: translate(84px, 8px) scale(1.03) rotate(6.45deg);
-      }
-      72% {
-        opacity: 1;
-        transform: translate(198px, 16px) scale(1.012) rotate(6.15deg);
-      }
-      100% {
-        opacity: 1;
-        transform: translate(var(--card-x, -50%), var(--card-y, 0)) scale(1) rotate(var(--card-rotate, 0deg));
-      }
-    }
-
-    @keyframes fan-card-left-a {
-      0% {
-        opacity: 0;
-        transform: translate(120px, -2px) scale(0.98) rotate(6deg);
-      }
-      18% {
-        opacity: 0.55;
-        transform: translate(94px, 4px) scale(0.988) rotate(4.4deg);
-      }
-      44% {
-        opacity: 1;
-        transform: translate(-8px, 12px) scale(0.998) rotate(-0.5deg);
-      }
-      72% {
-        opacity: 1;
-        transform: translate(-226px, 20px) scale(1.003) rotate(-9.4deg);
-      }
-      100% {
-        opacity: 1;
-        transform: translate(var(--card-x), var(--card-y)) scale(1) rotate(var(--card-rotate));
-      }
-    }
-
-    @keyframes fan-card-left-b {
-      0% {
-        opacity: 0;
-        transform: translate(118px, -1px) scale(0.98) rotate(6deg);
-      }
-      18% {
-        opacity: 0.55;
-        transform: translate(92px, 3px) scale(0.988) rotate(4.4deg);
-      }
-      46% {
-        opacity: 1;
-        transform: translate(12px, 9px) scale(0.998) rotate(0.6deg);
-      }
-      74% {
-        opacity: 1;
-        transform: translate(-118px, 14px) scale(1.003) rotate(-4deg);
-      }
-      100% {
-        opacity: 1;
-        transform: translate(var(--card-x), var(--card-y)) scale(1) rotate(var(--card-rotate));
-      }
-    }
-
-    @keyframes fan-card-left-c {
-      0% {
-        opacity: 0;
-        transform: translate(116px, 0) scale(0.98) rotate(6deg);
-      }
-      18% {
-        opacity: 0.55;
-        transform: translate(90px, 2px) scale(0.988) rotate(4.4deg);
-      }
-      48% {
-        opacity: 1;
-        transform: translate(46px, 6px) scale(0.998) rotate(1.5deg);
-      }
-      76% {
-        opacity: 1;
-        transform: translate(-6px, 10px) scale(1.003) rotate(0.2deg);
-      }
-      100% {
-        opacity: 1;
-        transform: translate(var(--card-x), var(--card-y)) scale(1) rotate(var(--card-rotate));
-      }
-    }
-
-    @keyframes fan-card-left-d {
-      0% {
-        opacity: 0;
-        transform: translate(114px, 0) scale(0.98) rotate(6deg);
-      }
-      18% {
-        opacity: 0.55;
-        transform: translate(88px, 2px) scale(0.988) rotate(4.4deg);
-      }
-      48% {
-        opacity: 1;
-        transform: translate(102px, 8px) scale(0.998) rotate(2.8deg);
-      }
-      78% {
-        opacity: 1;
-        transform: translate(114px, 13px) scale(1.003) rotate(2.2deg);
-      }
-      100% {
-        opacity: 1;
-        transform: translate(var(--card-x), var(--card-y)) scale(1) rotate(var(--card-rotate));
-      }
-    }
-
     @keyframes pill-rise {
       0% {
         opacity: 0;
@@ -1323,6 +1203,14 @@
           "--card-rotate": "6deg"
         },
         company: "The Wash Company",
+        motion: {
+          start: { x: -40, y: 280, scale: 0.9, rotate: 7 },
+          cp1: { x: 36, y: 176 },
+          cp2: { x: 176, y: 40 },
+          end: { x: 242, y: 22, scale: 1, rotate: 6 },
+          duration: 1520,
+          delay: 140
+        },
         image: "assets/client-cards/the-wash-company.jpg",
         circle: { left: "16px", top: "16px", background: "rgba(241, 246, 235, 0.92)" },
         title: "twillful",
@@ -1337,6 +1225,14 @@
           "--card-rotate": "-11deg"
         },
         company: "Lakeside Laundromat",
+        motion: {
+          start: { x: 224, y: 24, scale: 0.97, rotate: 6 },
+          cp1: { x: 168, y: 28 },
+          cp2: { x: -110, y: 38 },
+          end: { x: -286, y: 24, scale: 1, rotate: -11 },
+          duration: 1440,
+          delay: 1140
+        },
         image: "assets/client-cards/lakeside-laundromat.jpg",
         circle: { right: "18px", top: "18px", background: "rgba(255,255,255,0.42)" },
         title: "ux",
@@ -1351,6 +1247,14 @@
           "--card-rotate": "-5deg"
         },
         company: "Bluebird",
+        motion: {
+          start: { x: 224, y: 24, scale: 0.97, rotate: 6 },
+          cp1: { x: 176, y: 24 },
+          cp2: { x: -12, y: 28 },
+          end: { x: -166, y: 16, scale: 1, rotate: -5 },
+          duration: 1460,
+          delay: 1200
+        },
         image: "assets/client-cards/bluebird.jpg",
         circle: { left: "22px", bottom: "18px", background: "rgba(255,244,225,0.65)" },
         title: "brand",
@@ -1365,6 +1269,14 @@
           "--card-rotate": "-1deg"
         },
         company: "The Caption Lab",
+        motion: {
+          start: { x: 224, y: 24, scale: 0.97, rotate: 6 },
+          cp1: { x: 184, y: 22 },
+          cp2: { x: 70, y: 20 },
+          end: { x: -42, y: 12, scale: 1, rotate: -1 },
+          duration: 1480,
+          delay: 1260
+        },
         image: "assets/client-cards/the-caption-lab.jpg",
         circle: { right: "18px", bottom: "18px", background: "rgba(255,255,255,0.45)" },
         title: "copy",
@@ -1379,6 +1291,14 @@
           "--card-rotate": "2deg"
         },
         company: "Firelands United",
+        motion: {
+          start: { x: 224, y: 24, scale: 0.97, rotate: 6 },
+          cp1: { x: 214, y: 22 },
+          cp2: { x: 152, y: 20 },
+          end: { x: 108, y: 16, scale: 1, rotate: 2 },
+          duration: 1500,
+          delay: 1320
+        },
         image: "assets/client-cards/firelands-united.jpg",
         circle: { left: "18px", top: "18px", background: "rgba(255,255,255,0.2)" },
         title: "launch",
@@ -1387,6 +1307,69 @@
     ];
 
     function AnimatedHeroHeader() {
+      const heroCardRefs = React.useRef({});
+
+      React.useEffect(() => {
+        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        function cubicPoint(p0, p1, p2, p3, t) {
+          const mt = 1 - t;
+          return (
+            mt * mt * mt * p0 +
+            3 * mt * mt * t * p1 +
+            3 * mt * t * t * p2 +
+            t * t * t * p3
+          );
+        }
+
+        function smoothstep(t) {
+          return t * t * (3 - 2 * t);
+        }
+
+        heroCards.forEach((card) => {
+          const element = heroCardRefs.current[card.key];
+          const motion = card.motion;
+          if (!element || !motion) return;
+
+          const finalTransform = `translate(${motion.end.x}px, ${motion.end.y}px) scale(${motion.end.scale}) rotate(${motion.end.rotate}deg)`;
+          element.getAnimations().forEach((animation) => animation.cancel());
+
+          if (prefersReducedMotion) {
+            element.style.opacity = "1";
+            element.style.transform = finalTransform;
+            return;
+          }
+
+          const steps = 48;
+          const keyframes = Array.from({ length: steps + 1 }, (_, index) => {
+            const progress = index / steps;
+            const t = smoothstep(progress);
+            const x = cubicPoint(motion.start.x, motion.cp1.x, motion.cp2.x, motion.end.x, t);
+            const y = cubicPoint(motion.start.y, motion.cp1.y, motion.cp2.y, motion.end.y, t);
+            const rotate = motion.start.rotate + (motion.end.rotate - motion.start.rotate) * t;
+            const scale = motion.start.scale + (motion.end.scale - motion.start.scale) * t;
+            const opacity = progress < 0.12 ? progress / 0.12 : 1;
+
+            return {
+              opacity,
+              transform: `translate(${x}px, ${y}px) scale(${scale}) rotate(${rotate}deg)`
+            };
+          });
+
+          const animation = element.animate(keyframes, {
+            duration: motion.duration,
+            delay: motion.delay,
+            easing: "linear",
+            fill: "forwards"
+          });
+
+          animation.onfinish = () => {
+            element.style.opacity = "1";
+            element.style.transform = finalTransform;
+          };
+        });
+      }, []);
+
       return (
         <section className="saas-hero-shell">
           <div className="saas-stage">
@@ -1427,7 +1410,14 @@
 
                 <div className="relative h-[252px] w-full max-w-[980px] sm:h-[278px] md:h-[300px]" style={{ marginTop: "calc(-4rem - 10px)", transform: "translateX(-62px)" }}>
                   {heroCards.map((card) => (
-                    <div key={card.key} className={card.className} style={card.style}>
+                    <div
+                      key={card.key}
+                      ref={(element) => {
+                        heroCardRefs.current[card.key] = element;
+                      }}
+                      className={card.className}
+                      style={card.style}
+                    >
                       <div className="hero-hover-pill">{card.company}</div>
                       <div className="hero-card-art">
                         {card.image && <img src={card.image} alt={card.label || card.title} className="hero-card-image" />}
