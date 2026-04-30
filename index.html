@@ -1011,13 +1011,13 @@
         transform: translateX(0);
       }
       to {
-        transform: translateX(calc(-33.333% - 0.666rem));
+        transform: translateX(calc(-25% - 0.75rem));
       }
     }
 
     @keyframes gallery-scroll-right {
       from {
-        transform: translateX(calc(-33.333% - 0.666rem));
+        transform: translateX(calc(-25% - 0.75rem));
       }
       to {
         transform: translateX(0);
@@ -1620,7 +1620,7 @@
               <div className="px-0 py-6 sm:py-8 md:py-10">
                 <div className="gallery-wave py-4">
                   <div className="gallery-track gallery-track--offset">
-                    {[...galleryCardsTop, ...galleryCardsTop, ...galleryCardsTop].map((card, index) => {
+                    {[...galleryCardsTop, ...galleryCardsTop, ...galleryCardsTop, ...galleryCardsTop].map((card, index) => {
                       const CardTag = card.url ? "a" : "button";
                       return (
                         <CardTag
@@ -1667,7 +1667,7 @@
 
                 <div className="gallery-wave py-4">
                   <div className="gallery-track gallery-track--reverse">
-                    {[...galleryCardsBottom, ...galleryCardsBottom, ...galleryCardsBottom].map((card, index) => {
+                    {[...galleryCardsBottom, ...galleryCardsBottom, ...galleryCardsBottom, ...galleryCardsBottom].map((card, index) => {
                       const CardTag = card.url ? "a" : "button";
                       return (
                         <CardTag
