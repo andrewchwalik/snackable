@@ -556,80 +556,26 @@
     .trust-logo {
       display: inline-flex;
       align-items: center;
-      gap: 0.95rem;
       min-width: max-content;
-      color: rgba(149, 180, 117, 0.48);
-      font-size: 1.5rem;
-      font-weight: 800;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
       white-space: nowrap;
       user-select: none;
     }
 
-    .trust-logo-mark {
-      position: relative;
-      width: 2.25rem;
-      height: 2.25rem;
-      flex: 0 0 2.25rem;
-      border-radius: 999px;
-      border: 1px solid rgba(149, 180, 117, 0.26);
-      background: rgba(149, 180, 117, 0.08);
-    }
-
-    .trust-logo-mark::before,
-    .trust-logo-mark::after {
-      content: "";
-      position: absolute;
-      background: rgba(149, 180, 117, 0.42);
-    }
-
-    .trust-logo-mark::before {
-      width: 44%;
-      height: 44%;
-      border-radius: 999px;
-      left: 18%;
-      top: 18%;
-    }
-
-    .trust-logo-mark::after {
-      width: 0.85rem;
-      height: 2px;
-      border-radius: 999px;
-      right: 14%;
-      bottom: 28%;
-      transform: rotate(-34deg);
-      transform-origin: right center;
-    }
-
-    .trust-logo--wordmark {
-      font-size: 1.45rem;
-      letter-spacing: 0.12em;
-    }
-
-    .trust-logo--round .trust-logo-mark::before {
-      left: 50%;
-      top: 50%;
-      width: 0.9rem;
-      height: 0.9rem;
-      transform: translate(-50%, -50%);
-    }
-
-    .trust-logo--round .trust-logo-mark::after {
-      display: none;
-    }
-
-    .trust-logo--stack .trust-logo-mark::before {
-      width: 0.95rem;
-      height: 0.95rem;
-      border-radius: 0.3rem;
-      left: 0.42rem;
-      top: 0.36rem;
-      box-shadow: 0 0.4rem 0 0 rgba(149, 180, 117, 0.28);
-    }
-
-    .trust-logo--stack .trust-logo-mark::after {
-      display: none;
+    .trust-logo-image {
+      height: 2.6rem;
+      width: auto;
+      max-width: 11rem;
+      object-fit: contain;
+      opacity: 0.52;
+      filter:
+        brightness(0)
+        saturate(100%)
+        invert(74%)
+        sepia(18%)
+        saturate(656%)
+        hue-rotate(47deg)
+        brightness(95%)
+        contrast(86%);
     }
 
     .gallery-section {
@@ -1155,16 +1101,24 @@
     ];
 
     const trustLogos = [
-      { name: "Northline", style: "trust-logo--wordmark" },
-      { name: "Mercury", style: "trust-logo--round" },
-      { name: "Linear", style: "trust-logo--wordmark" },
-      { name: "Datagrid", style: "trust-logo--stack" },
-      { name: "Aster", style: "trust-logo--round" },
-      { name: "Remote", style: "trust-logo--wordmark" },
-      { name: "Cirrus", style: "trust-logo--stack" },
-      { name: "Monarch", style: "trust-logo--round" },
-      { name: "Beacon", style: "trust-logo--wordmark" },
-      { name: "Vanta", style: "trust-logo--stack" }
+      { name: "Adam H", src: "assets/client-logos/adamh-logo.png" },
+      { name: "Ascend Music Academy", src: "assets/client-logos/ascend-music-academy-logo.png" },
+      { name: "Delaware Rising", src: "assets/client-logos/delaware-rising-logo.png" },
+      { name: "Firelands United", src: "assets/client-logos/firelands-united-logo.png" },
+      { name: "Greater Firelands", src: "assets/client-logos/greater-firelands-logo.png" },
+      { name: "Homeboys", src: "assets/client-logos/homeboys-logo.png" },
+      { name: "Instinct Identity", src: "assets/client-logos/instinct-identity-logo.png" },
+      { name: "Keller Williams", src: "assets/client-logos/keller-williams-logo.png" },
+      { name: "Main Squeeze", src: "assets/client-logos/main-squeeze-logo.png" },
+      { name: "Marion Crawford Prevention Programs", src: "assets/client-logos/marion-crawford-prevention-programs-logo.png" },
+      { name: "Nucamp", src: "assets/client-logos/nucamp-logo.png" },
+      { name: "Pure Life Health", src: "assets/client-logos/pure-life-health-logo.png" },
+      { name: "Reflektions", src: "assets/client-logos/reflektions-logo.png" },
+      { name: "Retie", src: "assets/client-logos/retie-logo.png" },
+      { name: "Sauced Pizza", src: "assets/client-logos/sauced-pizza-logo.png" },
+      { name: "St. Andrews", src: "assets/client-logos/st-andrews-logo.png" },
+      { name: "Terra State", src: "assets/client-logos/terra-state-logo.png" },
+      { name: "Topped", src: "assets/client-logos/topped-logo.png" }
     ];
 
     const galleryCardsTop = [
@@ -1605,9 +1559,8 @@
               <div className="trust-marquee">
                 <div className="trust-track">
                   {[...trustLogos, ...trustLogos].map((logo, index) => (
-                    <div key={`${logo.name}-${index}`} className={`trust-logo ${logo.style || ""}`}>
-                      <span className="trust-logo-mark" aria-hidden="true" />
-                      <span>{logo.name}</span>
+                    <div key={`${logo.name}-${index}`} className="trust-logo" aria-label={logo.name}>
+                      <img src={logo.src} alt={logo.name} className="trust-logo-image" />
                     </div>
                   ))}
                 </div>
