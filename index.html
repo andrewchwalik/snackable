@@ -362,6 +362,7 @@
 
     .hero-card {
       position: absolute;
+      display: block;
       left: 50%;
       top: 48%;
       width: 184px;
@@ -370,7 +371,10 @@
       overflow: visible;
       box-shadow: 0 30px 70px rgba(18, 25, 18, 0.14);
       background: transparent !important;
+      color: inherit;
+      cursor: pointer;
       opacity: 0;
+      text-decoration: none;
       transform-origin: center center;
       transition:
         translate 0.28s cubic-bezier(0.22, 1, 0.36, 1),
@@ -504,6 +508,11 @@
     .hero-card:focus-within {
       translate: 0 -10px;
       scale: 1.028;
+    }
+
+    .hero-card:focus-visible {
+      outline: 3px solid rgba(149, 180, 117, 0.72);
+      outline-offset: 7px;
     }
 
     .trust-section {
@@ -1158,6 +1167,7 @@
           "--card-rotate": "6deg"
         },
         company: "The Wash Company",
+        url: "https://thewashco.net/",
         motion: {
           start: { x: -40, y: 280, scale: 0.9, rotate: 7 },
           cp1: { x: 36, y: 176 },
@@ -1180,6 +1190,7 @@
           "--card-rotate": "-11deg"
         },
         company: "Lakeside Laundromat",
+        url: "https://lakesidelaundromat.com/",
         motion: {
           start: { x: 224, y: 24, scale: 0.97, rotate: 6 },
           cp1: { x: 168, y: 28 },
@@ -1202,6 +1213,7 @@
           "--card-rotate": "-5deg"
         },
         company: "Bluebird",
+        url: "https://bluebird.ooo/",
         motion: {
           start: { x: 224, y: 24, scale: 0.97, rotate: 6 },
           cp1: { x: 176, y: 24 },
@@ -1224,6 +1236,7 @@
           "--card-rotate": "-1deg"
         },
         company: "The Caption Lab",
+        url: "https://www.thecaptionlab.com/",
         motion: {
           start: { x: 224, y: 24, scale: 0.97, rotate: 6 },
           cp1: { x: 184, y: 22 },
@@ -1246,6 +1259,7 @@
           "--card-rotate": "2deg"
         },
         company: "Firelands United",
+        url: "https://firelandsunited.com/",
         motion: {
           start: { x: 224, y: 24, scale: 0.97, rotate: 6 },
           cp1: { x: 214, y: 22 },
@@ -1364,36 +1378,43 @@
                 </div>
 
                 <div className="relative h-[252px] w-full max-w-[980px] sm:h-[278px] md:h-[300px]" style={{ marginTop: "calc(-4rem - 10px)", transform: "translateX(-62px)" }}>
-                  {heroCards.map((card) => (
-                    <div
-                      key={card.key}
-                      ref={(element) => {
-                        heroCardRefs.current[card.key] = element;
-                      }}
-                      className={card.className}
-                      style={card.style}
-                    >
-                      <div className="hero-hover-pill">{card.company}</div>
-                      <div className="hero-card-art">
-                        {card.image && <img src={card.image} alt={card.label || card.title} className="hero-card-image" />}
-                        {!card.image && (
-                          <>
-                            <div className="hero-card-grid" />
-                            <div className="hero-card-line" />
-                            <div className="absolute inset-x-5 bottom-5 rounded-[20px] bg-white/18 p-4 backdrop-blur-[2px]">
-                              <div className="text-left text-[12px] font-black uppercase tracking-[0.2em] text-white/86">
-                                {card.title}
+                  {heroCards.map((card) => {
+                    const CardTag = card.url ? "a" : "div";
+
+                    return (
+                      <CardTag
+                        key={card.key}
+                        ref={(element) => {
+                          heroCardRefs.current[card.key] = element;
+                        }}
+                        {...(card.url
+                          ? { href: card.url, target: "_blank", rel: "noreferrer noopener", "aria-label": `Visit ${card.company}` }
+                          : {})}
+                        className={card.className}
+                        style={card.style}
+                      >
+                        <div className="hero-hover-pill">{card.company}</div>
+                        <div className="hero-card-art">
+                          {card.image && <img src={card.image} alt={card.label || card.title} className="hero-card-image" />}
+                          {!card.image && (
+                            <>
+                              <div className="hero-card-grid" />
+                              <div className="hero-card-line" />
+                              <div className="absolute inset-x-5 bottom-5 rounded-[20px] bg-white/18 p-4 backdrop-blur-[2px]">
+                                <div className="text-left text-[12px] font-black uppercase tracking-[0.2em] text-white/86">
+                                  {card.title}
+                                </div>
+                                <div className="mt-1 text-left text-2xl font-extrabold text-white">
+                                  {card.accent}
+                                </div>
                               </div>
-                              <div className="mt-1 text-left text-2xl font-extrabold text-white">
-                                {card.accent}
-                              </div>
-                            </div>
-                            <div className="hero-card-circle" style={card.circle} />
-                          </>
-                        )}
-                      </div>
-                    </div>
-                  ))}
+                              <div className="hero-card-circle" style={card.circle} />
+                            </>
+                          )}
+                        </div>
+                      </CardTag>
+                    );
+                  })}
 
                 </div>
 
