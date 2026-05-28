@@ -57,6 +57,7 @@
 
     html {
       scroll-behavior: smooth;
+      overflow-x: hidden;
     }
 
     body {
@@ -65,6 +66,7 @@
       font-family: "Manrope", sans-serif;
       background: #ffffff;
       min-height: 100vh;
+      overflow-x: hidden;
     }
 
     #root {
@@ -568,21 +570,20 @@
       object-fit: contain;
       opacity: 0.52;
       filter:
-        brightness(0)
-        saturate(100%)
-        invert(74%)
-        sepia(18%)
-        saturate(656%)
-        hue-rotate(47deg)
-        brightness(95%)
-        contrast(86%);
+        grayscale(1)
+        sepia(1)
+        hue-rotate(46deg)
+        saturate(0.9)
+        brightness(0.9)
+        contrast(0.82);
     }
 
     .gallery-section {
       position: relative;
       background: #ffffff;
       color: #142012;
-      overflow: visible;
+      overflow-x: clip;
+      overflow-y: visible;
     }
 
     .gallery-wave {
